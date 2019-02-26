@@ -1,0 +1,80 @@
+<include file="Shared:Header" />
+
+<body class="Bodybg">
+	<form id="FF" class="easyui-form" method="post" data-options="novalidate:true">
+		<table width="100%" border="0" cellpadding="3" cellspacing="0" class="EditTable">
+			<thead>
+				<tr>
+					<td colspan="2">说明：会员资料只能修改基本信息，有关账号及资金部分不可修改！</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="right">状态：</td>
+					<td>
+						<select id="Status" name="Status">
+							<!--<option value="0" <?php if($res['Status']=='0') echo 'selected';?> >待审核</option>-->
+							<option value="1" <?php if($res[ 'Status']=='1' ) echo 'selected';?> >审核成功</option>
+							<option value="2" <?php if($res[ 'Status']=='2' ) echo 'selected';?> >审核失败</option>
+							<option value="3" <?php if($res[ 'Status']=='3' ) echo 'selected';?> >审核取消</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">禁止天数：</td>
+					<td>
+						<input id="ForbidDay" name="ForbidDay" type="text" value="0" class="easyui-numberbox" data-options="required:true,width:100,validType:['length[1,100]']" />&nbsp;如果不限制请填写0
+					</td>
+				</tr>
+				<!--<tr>
+			<td align="right">放款金额：</td>
+            <td>
+                <input id="ForbidDay" name="money" type="text" value="0" class="easyui-numberbox" data-options="required:true,width:100,validType:['length[1,100]']" />&nbsp;重新设置放款额度 
+            </td>
+		</tr>-->
+				<tr>
+					<td align="right">借款金额：</td>
+					<td>
+						<select id="Status" name="money_id">
+
+							<foreach name="moneylist" item="vo" key='k'>
+								<!--selected-->
+
+								<option value="{$vo.ID}" selected>{$vo.SalePrice}元</option>
+								<!--<?php if($vo['SalePrice']==$ApplyMoney){ ?>
+		
+        	<?php }else{ ?>
+		      <option value="{$vo.ID}" selected>{$vo.SalePrice}元</option>
+		      <?php } ?>-->
+							</foreach>
+
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">借款期限：</td>
+					<td>
+						<select id="Status" name="time_id">
+
+							<foreach name="termlist" item="vo" key='k'>
+
+								<!--<option value="{$vo.ID}">{$vo.NumDays}天</option>-->
+								<option value="{$vo.ID}">7天</option>
+							</foreach>
+
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">原因:</td>
+					<td colspan="3">
+						<textarea name="Remark" id="Remark" style="width:400px;height:90px;"></textarea><br/>
+						<span style="color:red;">提示：审核失败需要填写原因</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="hidden" id="ID" name="ID" value="{$res['ID']}" />
+	</form>
+</body>
+<include file="Shared:Footer" />

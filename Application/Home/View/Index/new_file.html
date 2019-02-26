@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			.title {
+				text-align: center;
+				color: #3ad03a;
+				font-size: 14px;
+				display: block;
+			}
+			
+			.tab {
+				position: relative;
+				margin-top: 30px;
+				font-size: 14px;
+				color: #9c9696;
+				height: 15%;
+				width: 100%;
+				border: 1px solid;
+			}
+			
+			.tab tr {
+				height: 40px;
+				background-color: #f0f0f0;
+				color: grey;
+			}
+			
+			table caption {
+				color: #1aa71a;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h4 class="title">网贷黑名单命中情况	</h4>
+
+		<table class="tab" style="border:1;" rules="all">
+			<tr>
+				<td>
+					是否命中黑名单 1命中网贷黑名单 0未命中网贷黑名单 -1 三方接口异常
+				</td>
+				<td>
+					{$data['NET_LOAN_BLACK_LIST']['hit']}
+				</td>
+			</tr>
+		</table>
+
+		<h4 class="title">借贷*客户逾期情况</h4>
+
+		<table class="tab" style="border:1;" rules="all">
+
+			<tr>
+				<td>
+					1命中 0未命中 2 用户未注册或设置隐私不可被搜索 -1 三方接口异常
+				</td>
+				<td>
+					{$data['JIE_DAI_BAO_LOAN']['hit']}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					是否高风险用户 1：是高风险用户，无：不是高风险用户
+				</td>
+				<td>
+					{$data['JIE_DAI_BAO_LOAN']['is_high_risk_user']}
+				</td>
+			</tr>
+			<td>
+				最近一次访问日期 YYYY-MM-DD
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['last_visit_dt']}
+			</td>
+			</tr>
+			<td>
+				30天以上逾期次数 极高、较高、高、中、低、较低、极低、无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['30d_overdue_cnt']}
+			</td>
+			</tr>
+			<td>
+				历史逾期金额 极高、较高、高、中、低、较低、极低、无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['his_overdue_amt']}
+			</td>
+			</tr>
+			</tr>
+			<td>
+				最近一次逾期时间 YYYY-MM-DD
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['last_overdue_dt']}
+			</td>
+			</tr>
+			</tr>
+			<td>
+				最近一次逾期金额 极高、较高、高、中、低、较低、极低、无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['last_overdue_amt']}
+			</td>
+			</tr>
+			</tr>
+			<td>
+				当前逾期金额 极高、较高、高、中、低、较低、极低、无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['curr_overdue_amt']}
+			</td>
+			</tr>
+			</tr>
+			<td>
+				当前逾期最大天数 M6、M3、M2、M1、W2、W1、D3、D1、0
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['curr_overdue_days']}
+			</td>
+			</tr>
+			</tr>
+			<td>
+				首次逾期时间 YYYY-MM-DD
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['first_overdue_dt']}
+			</td>
+			</tr>
+
+			</tr>
+			<td>
+				首次逾期金额 极高、较高、高、中、低、较低、极低、无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['first_overdue_amt']}
+			</td>
+			</tr>
+			</tr>
+			<td>
+				最近一次还款时间 YYYY-MM-DD
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['last_repay_tm']}
+			</td>
+			</tr>
+			</tr>
+			<td>
+				总还款次数 极高、较高、高、中、低、较低、极低、无无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['repay_times']}
+			</td>
+			</tr>
+			</tr>
+			<td>
+				在进行的贷款笔数 极高、较高、高、中、低、较低、极低、无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['curr_debt_product_cnt']}
+			</td>
+			</tr>
+
+			</tr>
+			<td>
+				历史贷款笔数 极高、较高、高、中、低、较低、极低、无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['total_in_order_cnt']}
+			</td>
+			</tr>
+
+			</tr>
+			<td>
+				历史总借款金额 极高、较高、高、中、低、较低、极低、无
+			</td>
+			<td>
+				{$data['JIE_DAI_BAO_LOAN']['total_in_order_amt']}
+			</td>
+			</tr>
+
+		</table>
+
+		<h4 class="title">无*客户逾期情况</h4>
+
+		<table class="tab" style="border:1;" rules="all">
+
+			<tr>
+				<td>
+					是否命中黑名单 1命中（存在当前45天以上逾期借条） ；0未命中 ； -1 三方接口异常
+				</td>
+				<td>
+					{$data['WU_YOU_LOAN']['hit']}
+				</td>
+			</tr>
+
+		</table>
+		<h4 class="title">今借*客户逾期情况</h4>
+
+		<table class="tab" style="border:1;" rules="all">
+
+			<tr>
+				<td>
+					是否命中黑名单 1命中（存在当前逾期借条） 0未命中 2未注册/未认证(商户根据需要也可以认为是未命中的一种) -1 三方接口异常
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['hit']}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					注册日期 格式2017-11-07，默认初始时间1970-01-01，如果为1970-01-01表示注册日期不可信
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['register_time']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					累积借入人数 有多少人借给他了 Int，如：4
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_borrow_people_num']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					累积借出次数 他借出去了多少次 Int，如：1
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_lend_cnt']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					累积借款金额，单位元，包含小数 Double，如：2002.97
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_borrow_amt']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					当前逾期金额，单位元，包含小数 Double，如：501.88
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_current_overdue_amt']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					>=7天逾期次数 累计次数（不管还否） Int，如：1
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_overdue_7days_cnt']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					当前逾期笔数 Int，如：2
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_current_overdue_cnt']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					>=7天逾期金额，单位元，包含小数 超过7天逾期的累计金额，（本金+利息）Double，如：501.88
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_overdue_7days_amt']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					累积逾期总额，单位元，包含小数 累计逾期总额本金+利息（不管还否） Double，如：501.88
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_overdue_amt']}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					历史逾期次数 Int，如：2
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_overdue_cnt']}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					最大逾期金额 与n_overdue_amt相同 Double，如：501.88
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_to_overdue_max_amt']}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					最近7天逾期次数 累计未还的次数（超过7天的未还次数）Int，如：2
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_current_overdue_7days_cnt']}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					是否超过90天的逾期 0：没有 1：有
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_overude_90_days']}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					累积借入笔数 Int，如：4
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_borrow_cnt']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					>=30天逾期金额 超过30天的累计（本金）求和，不管还否 Double，如：1500
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_overdue_30days_amt']}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					>=30天逾期次数 超过30天的累计次数，不管还否 Int，如：2
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['n_overdue_30days_cnt']}
+				</td>
+			</tr>
+			<!--<tr>
+				<td>
+					overduelist 逾期列表 逾期列表中参数说明： t_repay_tm：还款日期 c_tm：计息日期(对方不方便透露，我们这边的借款平台处理一般是本金计息) n_amt：金额 n_count：逾期天数 b_end：0未处理，1已处理
+				</td>
+				<td>
+					{$data['JIN_JIE_DAO_LOAN']['overduelist']}
+				</td>
+			</tr>-->
+		</table>
+
+	</body>
+
+</html>

@@ -1,0 +1,70 @@
+<include file="Shared:Header" />
+<body class="Bodybg">
+	<div id="tt" class="easyui-tabs">
+		<div title="规则配置" style="padding: 20px; background-color: #f4f4f4">
+			<form action="" method="post">
+				<body>
+					<div class="">
+							<label for="exampleInputEmail1">运营商参数配置</label>
+					</div>
+					<div class="">
+							<label for="exampleInputEmail1">支付宝配置</label>
+					</div>
+					<div class="">
+							<label for="exampleInputEmail1">有盾参数配置</label>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">雷达分析指数</label>
+						<input id="exampleInputEmail1" class="form-control" type="text" required="" name="apply_score" value="{$leida.apply_score}">
+						<label for="exampleInputEmail1">1到1000 分值越高风险等级越小                    小于设置的分数直接拒绝</label>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">有盾分析指数</label>
+						<input id="exampleInputEmail1" class="form-control" type="text" required="" name="youdun" value="{$leida.youdun}">
+						<label for="exampleInputEmail1">1- 99分，分值越高风险等级越大              大于设置的分数将直接被拒绝 </label>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">用户特征 如果命中直接拒绝</label>
+						<input type="checkbox" name="" id="" value="" />
+						<label for="exampleInputEmail1">法院失信</label>
+						<input type="checkbox" name="" id="" value="" />
+						<label for="exampleInputEmail1">网贷失信</label>
+						<input type="checkbox" name="" id="" value="" />
+						<label for="exampleInputEmail1">欺诈行为</label>
+						<input type="checkbox" name="" id="" value="" />
+						<label for="exampleInputEmail1">活体攻击</label>
+						<input type="checkbox" name="" id="" value="" />
+						<label for="exampleInputEmail1">短期逾期</label>
+						<input type="checkbox" name="" id="" value="" />
+						<label for="exampleInputEmail1">羊毛用户</label>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">建议拉黑</label>
+						<select name="">
+							<option value="">开启</option>
+							<option value="">关闭</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">建议洗白</label>
+						<select name="">
+							<option value="">开启</option>
+							<option value="">关闭</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">建议拉黑</label>
+						<select name="">
+							<option value="">开启</option>
+							<option value="">关闭</option>
+						</select>
+					</div>
+
+					<input type="hidden" name="id" id="id" value="{$leida.id}" />
+					<button class="btn btn-primary btn-block" type="submit"> 保存 </button>
+				</body>
+			</form>
+		</div>
+	</div>
+</body>
+<include file="Shared:Footer" />

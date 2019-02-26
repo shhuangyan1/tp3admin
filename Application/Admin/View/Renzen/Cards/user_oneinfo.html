@@ -1,0 +1,593 @@
+<!DOCTYPE html
+<html class="no-js">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style> 
+  <style type="text/css">.uib-time input{width:50px;}</style> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <title>{$data.sign}</title> 
+  <base href="." /> 
+  <meta name="description" content="" /> 
+  <meta name="viewport" content="width=device-width" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=8" /> 
+  <meta http-equiv="Expires" content="0" /> 
+  <meta http-equiv="Pragma" content="no-cache" /> 
+  <meta http-equiv="Cache-control" content="no-cache" /> 
+  <meta http-equiv="Cache" content="no-cache" /> 
+  <link rel="stylesheet" href="___ROOT__/public/Admin/baogao/css/bootstarp.min.css" />
+  <link rel="stylesheet" href="___ROOT__/public/Admin/baogao/css//main.css" /> 
+  <link rel="stylesheet" href="css/bootstarp.min.css" />
+  <link rel="stylesheet" href="css/main.css" /> 
+ </head> 
+ <body ng-app="cloudxWebApp" class="ng-scope"> 
+  <div ui-view="content" cg-busy="queryPromise" class="ng-scope" style="position: relative;">
+   <div class="rmn-useroneinfo ng-scope" style="overflow: hidden">
+    <div class="oneinfo-top">
+     <a class="oneinfo-tip">画像维度</a> 
+     <a class="oneinfo-time">更新日期为 2018-05-27 17:58:30</a> 
+     <a class="oneinfo-back" href="#">返回用户列表</a>
+     <div style="position: absolute; cursor: pointer;top:-3px;right: 120px">
+      <img src="img/check2.png" style="width: 40px;height:40px;transform: rotate(180deg)" /> 
+      <span style="position: absolute; cursor: pointer;top:10px;right: 6px;color:#fff">旧</span>
+     </div>
+    </div>
+    <!-- 头部信息 -->
+    <div>
+     <!-- 基本信息概况 -->
+     <div class="oneinfo-content" style="width: 54%;height: 300px">
+      <div class="oneinfo-title" style="margin-bottom: 20px">
+       基本信息概况
+      </div>
+      <div class="oneinfo-infoline">
+       身份证号码：
+       <span class="ng-binding">3624************2X</span>
+      </div>
+      <div class="oneinfo-infoline">
+       可信姓名：
+       <span class="ng-binding">{$data.id_detail.id_detail}<i class="icon-label kexing" style="font-size: 24px;color: #12addd;vertical-align: middle;margin-left: 4px"></i></span>
+      </div>
+      <div class="oneinfo-infoline">
+       性别：
+       <span class="ng-binding">{$data.sign}</span>
+      </div>
+      <div class="oneinfo-infoline">
+       民族：
+       <span class="ng-binding">汉</span>
+      </div>
+      <div class="oneinfo-infoline">
+       住址：
+       <span class="ng-binding">{$data.['id_detail'].address}</span>
+      </div>
+      <div class="oneinfo-infoline ng-hide" style="width: 50%">
+       曾组合姓名：
+       <span title="" class="ng-binding"></span>
+      </div>
+      <div style="position: absolute;left: 40%;top:0px;width: 60%;height: 300px" class="">
+       <div id="user_chart_kedu" style="width: 100%; height: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1527417510526">
+        <div style="position: relative; overflow: hidden; width: 329px; height: 300px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+         <canvas width="329" height="300" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 329px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+        </div>
+        <div></div>
+       </div>
+       <a style="position: absolute;left: 50%;margin-left: -50px;bottom: 13%;padding: 0px 10px;border-radius: 30px" data-toggle="tooltip" data-placement="bottom" title="有盾大数据系统根据用户的互联网交易行为、黑名单匹配情况、操作行为等多维度来识别用户的特征，特征下的日期为该用户最近一次满足该特征的日期。同时特征颜色反应了用户在互联网借贷行业失信风险的高低程度，红色最高、黄色次之、绿色最低，蓝色为中性特征，灰色表示该特征未被触发" class="rm_nbtn rm_nbtn_primary">有盾贷前模型</a>
+      </div>
+     </div>
+     <!-- 用户特征 -->
+     <div class="oneinfo-content" style="width: 45%;height: 300px;margin-left: 1%">
+      <div class="oneinfo-title">
+       用户特征 
+       <i class="iconfont user-fxtz" data-toggle="tooltip" data-placement="bottom" title="有盾大数据系统根据用户的互联网交易行为、黑名单匹配情况、操作行为等多维度来识别用户的特征，特征下的日期为该用户最近一次满足该特征的日期。同时特征颜色反应了用户在互联网借贷行业失信风险的高低程度，红色最高、黄色次之、绿色最低，蓝色为中性特征，灰色表示该特征未被触发"></i>
+       <div class="oneinfo-zhushi-line">
+        <div style="background: rgb(253, 112, 101);"></div>
+        <span>高危</span>
+        <div style="background: rgb(255, 191, 59);"></div>
+        <span>警示</span>
+        <div style="background: rgb(91, 195, 225);"></div>
+        <span>中立</span>
+        <div style="background: rgb(158, 158, 158);"></div>
+        <span>未触发</span>
+       </div>
+      </div>
+      <div class="oneinfo-features" style="margin: 10px">
+       <div  class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="命中法院失信名单" style="background: rgb(253, 112, 101);">
+        <span class="ng-binding">法院失信</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide"></div>
+       </div>
+       <div  class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="命中有盾网贷失信名单" style="background: rgb(253, 112, 101);">
+        <span class="ng-binding">网贷失信</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide"></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="有盾云慧眼系统识别出该用户有过活体攻击行为" style="background: rgb(253, 112, 101);">
+        <span class="ng-binding">活体攻击</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="命中有盾疑似团伙欺诈名单库" style="background: rgb(253, 112, 101);">
+        <span class="ng-binding">疑似欺诈团伙</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="命中有盾网贷不良黑名单，逾期天数为30-90天" style="background: rgb(255, 191, 59);">
+        <span class="ng-binding">网贷不良</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="命中有盾短期逾期黑名单，逾期天数为0-30天" style="background: rgb(91, 195, 225);">
+        <span class="ng-binding">短期逾期</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="用户在多家互联网理财平台进行投资且投资额度较小" style="background: rgb(255, 191, 59);">
+        <span class="ng-binding">羊毛党</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="用户信息存在被盗用的嫌疑" style="background: rgb(253, 112, 101);">
+        <span class="ng-binding">身份信息疑似泄漏</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="该用户使用的某个设备曾有过活体攻击行为" style="background: rgb(253, 112, 101);">
+        <span class="ng-binding">活体攻击设备</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="身份证／设备号／手机号中的任意两个相互关联超过一定数量" style="background: rgb(255, 191, 59);">
+        <span class="ng-binding">关联过多</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="用户有在多家互联网借款平台有过实际借款行为" style="background: rgb(255, 191, 59);">
+        <span class="ng-binding">多头借贷</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div  class="oneinfo-features-i ng-scope" data-toggle="tooltip" data-placement="bottom" title="有盾设备指纹技术识别到该用户曾经使用过的某个设备篡改过关键信息" style="background: rgb(255, 191, 59);">
+        <span class="ng-binding">曾使用可疑设备</span>
+        <div class="oneinfo-features-ii ng-binding" >
+         2018-05-27
+        </div>
+       </div>
+       <div class="tooltip ng-isolate-scope bottom fade bottom-left" data-toggle="tooltip" data-placement="bottom" title="有盾设备指纹技术识别到该用户曾经使用过的某个设备篡改过关键信息" style="top: 154px; left: 273px;"> 
+        <div class="tooltip-arrow" style="top: 0px; left: 4px;"></div> 
+        <div class="tooltip-inner ng-binding" ng-bind="content">
+         有盾设备指纹技术识别到该用户曾经使用过的某个设备篡改过关键信息
+        </div> 
+       </div>
+       <div   class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="有盾设备指纹技术识别到该用户曾经使用过的某个设备中安装了作弊软件" style="background: rgb(255, 191, 59);">
+        <span class="ng-binding">作弊软件</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide" ></div>
+       </div>
+       <div  class="oneinfo-features-i ng-scope old noTime" data-toggle="tooltip" data-placement="bottom" title="有盾设备指纹技术识别到该用户曾经使用过的某个设备安装了极多借贷类APP" style="background: rgb(255, 191, 59);">
+        <span class="ng-binding">安装极多借贷app</span>
+        <div class="oneinfo-features-ii ng-binding ng-hide"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- 借贷行业 -->
+    <div class="oneinfo-content">
+     <div class="oneinfo-title">
+      借贷行为
+     </div>
+     <div style="height: 200px;position: relative">
+      <div class="oneinfo-chart" id="user_chart_show1" style="width: 45%; -webkit-tap-highlight-color: transparent; user-select: none; background: transparent;" _echarts_instance_="ec_1527417510523">
+       <div style="position: relative; overflow: hidden; width: 458px; height: 200px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+        <canvas width="458" height="200" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 458px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+       </div>
+      </div>
+      <div class="oneinfo-chart" id="user_chart_show2" style="width: 30%; -webkit-tap-highlight-color: transparent; user-select: none; background: transparent;" _echarts_instance_="ec_1527417510524">
+       <div style="position: relative; overflow: hidden; width: 305px; height: 200px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+        <canvas width="305" height="200" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 305px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+       </div>
+      </div>
+      <div class="oneinfo-chartinfo">
+       <div class="oneinfo-chartinfo-line">
+        总申请借款平台数：
+        <span class="ng-binding">36个</span>
+       </div>
+       <div class="oneinfo-chartinfo-line">
+        总借款平台数：
+        <span class="ng-binding">1个</span>
+       </div>
+       <div class="oneinfo-chartinfo-line">
+        总还款平台数：
+        <span class="ng-binding">1个</span>
+       </div>
+       <div class="oneinfo-chartinfo-line">
+        还款笔数：
+        <span class="ng-binding">1笔</span>
+       </div>
+      </div>
+     </div>
+     <div class="oneinfo-t">
+      <span class="oneinfo-tinfo"><a>*</a>（有盾大数据系统拥有覆盖互联网借贷全行业的数据，包括小额现金贷款、大学生分期、电商分期、旅游分期、医美分期、教育、汽车、租房、农业消金等十余个细分类目。下方表格仅展示该用户有匹配到数据的行业清单）</span>
+     </div>
+     <div style="padding: 0 2%" class="">
+      <table class="oneinfo-table">
+       <tbody>
+        <tr>
+         <th>行业分类</th>
+         <th>申请借款平台数</th>
+         <th>借款平台数</th>
+         <th>还款平台数</th>
+         <th>还款笔数</th>
+        </tr>
+        <tr class="ng-scope">
+         <td class="ng-binding">小额现金贷</td>
+         <td class="ng-binding">36</td>
+         <td class="ng-binding">1</td>
+         <td class="ng-binding">1</td>
+         <td class="ng-binding">1</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="oneinfo-content" ng-show="isHasMap">
+     <div class="oneinfo-title">
+      关联图谱&nbsp;
+      <span style="font-weight: normal;font-size: 12px" class="ng-hide">（该用户关系网过于复杂，关系图中仅显示前两层关系）</span> 
+      <i style="font-weight: normal" class="iconfont" tooltip-placement="right" uib-tooltip="有盾通过自有技术实现在互联网消费金融行业中的用户、设备、银行卡、手机号四个因素进行可视化的关联关系展示，可通过命中黑名单的因子找到其关联的其他因子，从而直观有效的发现各个因子之间存在的关系以及潜在风险"></i>
+     </div>
+     <div style="height: 470px;width:60%;float: left">
+      <div style="height: 100%; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" id="user_chart_user" _echarts_instance_="ec_1527417510527">
+       <div style="position: relative; overflow: hidden; width: 611px; height: 470px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+        <canvas width="611" height="470" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 611px; height: 470px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+       </div>
+       <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 371px; top: 256px;"></div>
+      </div>
+     </div>
+     <div style="height: 500px;width:40%;float: left">
+      <div style="height: 230px;line-height: 25px;text-align: end;padding-right: 20px;margin-top: -30px">
+       <div style="font-size: 14px;font-weight: bold" ng-hide="isApi">
+        <div style="display: inline-block;cursor: pointer">
+         <img src="img/u_buttom1.png" style="width: 40px;margin: -3px 10px 0 0" />标记当前用户为商户黑名单
+        </div>
+        <div style="display: inline-block;cursor: pointer" class="ng-hide">
+         <img src="img/u_buttom.png" style="width: 40px;margin: -3px 10px 0 0;transform: rotate(180deg)" />取消标记当前用户为黑名单
+        </div>
+       </div>
+       <div>
+        <img style="width:16px;margin: -3px 0px 0 10px" src="img/u_ID_CARD2.png" alt="" /> 
+        <span>商户黑名单</span> 
+        <img style="width:16px;margin: -3px 0px 0 10px" src="img/u_ID_CARD3.png" alt="" /> 
+        <span>有盾&amp;商户黑名单</span>
+       </div>
+       <div>
+        <img style="width:16px;margin: -3px 0px 0 30px" src="img/u_ID_CARD1.png" alt="" /> 
+        <img style="width:16px;margin: -3px 0px 0 0px" src="img/u_DEVICE1.png" alt="" /> 
+        <span>有盾黑名单</span>
+       </div>
+      </div>
+      <div style="height: 300px">
+       <div style="text-align: end;padding-right: 20px">
+        <img style="width:16px;margin: -3px 0px 0 15px" src="img/u_ID_CARD.png" alt="" /> 
+        <span>身份证</span> 
+        <img style="width:16px;margin: -3px 0px 0 10px" src="img/u_DEVICE.png" alt="" /> 
+        <span>设备</span> 
+        <img style="width:16px;margin: -3px 0px 0 10px" src="img/u_MOBILE.png" alt="" /> 
+        <span>手机号</span> 
+        <img style="width:16px;margin: -3px 0px 0 10px" src="img/u_BANK_CARD.png" alt="" /> 
+        <span>银行卡</span>
+       </div>
+       <div style="position: relative;height: 60px;margin:5px;padding:5px 10px;background: #eee;line-height: 25px">
+        <div>
+         <img style="width:22px;margin: -3px 3px 0 0" src="img/u_ID_CARD.png" alt="" />
+         <div style="display: inline-block">
+          <span style="font-weight: bold">关联用户数</span> 
+          <span class="light ng-binding">2个</span> 
+          <span>（本商户内&nbsp;<span class="light ng-binding">0个</span>）</span>
+         </div>
+        </div>
+        <div>
+         <span>法院失信&nbsp;<span class="light ng-binding" style="margin: 0 5px 0 0">0个</span></span> 
+         <span>网贷失信&nbsp;<span class="light ng-binding" style="margin: 0 5px 0 0">0个</span></span>
+         <span>活体攻击行为&nbsp;<span class="light ng-binding" style="margin: 0 5px 0 0">0个</span></span> 
+         <span>商户标记&nbsp;<span class="light ng-binding" style="margin: 0 5px 0 0">0个</span></span>
+        </div>
+       </div>
+       <div style="position: relative;height: 60px;margin:5px;padding:5px 10px;background: #eee;line-height: 25px">
+        <div>
+         <img style="width:22px;margin: -3px 3px 0 0" src="img/u_DEVICE.png" alt="" />
+         <div style="display: inline-block">
+          <span style="font-weight: bold">使用设备数</span> 
+          <span class="light ng-binding">1个</span>
+         </div>
+        </div>
+        <div>
+         <span>可疑设备&nbsp;<span class="light ng-binding" style="margin: 0 5px 0 0">1个</span></span>
+         <span>活体攻击设备&nbsp;<span class="light ng-binding" style="margin: 0 5px 0 0">0个</span></span>
+        </div>
+       </div>
+       <div style="position: relative;height: 60px;margin:5px;padding:5px 10px;background: #eee;line-height: 25px">
+        <div>
+         <img style="width:22px;margin: -3px 3px 0 0" src="img/u_DEVICE.png" alt="" />
+         <div style="display: inline-block">
+          <span style="font-weight: bold">其他关联设备数</span> 
+          <span class="light ng-binding">5个</span>
+         </div>
+        </div>
+        <div>
+         <span>可疑设备&nbsp;<span class="light ng-binding" style="margin: 0 5px 0 0">0个</span></span>
+         <span>活体攻击设备&nbsp;<span class="light ng-binding" style="margin: 0 5px 0 0">0个</span></span>
+        </div>
+       </div>
+       <div style="position: relative;height: 35px;margin:5px;padding:5px 10px;background: #eee;line-height: 25px">
+        <div>
+         <img style="width:22px;margin: -3px 3px 0 0" src="img/u_BANK_CARD.png" alt="" />
+         <div style="display: inline-block; margin: 0 20px 0 0">
+          <span style="font-weight: bold">名下银行卡数</span> 
+          <span class="light ng-binding">0个</span>
+         </div>
+         <div style="display: inline-block">
+          <span style="font-weight: bold">关联银行卡数</span> 
+          <span class="light ng-binding">5个</span>
+         </div>
+        </div>
+       </div>
+       <div style="position: relative;height: 35px;margin:5px;padding:5px 10px;background: #eee;line-height: 25px">
+        <div>
+         <img style="width:22px;margin: -3px 3px 0 0" src="img/u_MOBILE.png" alt="" />
+         <div style="display: inline-block">
+          <span style="font-weight: bold">使用手机号</span> 
+          <span class="light ng-binding">0个</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <!-- 关联信息 -->
+    <div class="oneinfo-content">
+     <div class="oneinfo-title">
+      关联信息
+     </div>
+     <div class="oneinfo-t">
+      移动设备情况 
+      <span class="oneinfo-tinfo"><a>*</a>该用户共使用<span class="light ng-binding">1</span>个设备，下方仅展示设备的最新信息。</span>
+     </div>
+     <div class="oneinfo-device ng-scope">
+      <div class="oneinfo-device-icon phoneb"></div>
+      <div class="oneinfo-device-lie brl">
+       <div class="oneinfo-bigsize ng-binding">
+        vivo vivo X9s
+       </div>
+       <div>
+        设备ID：
+        <span class="ng-binding">97_957fc89e-223d-4256-8d07-6d29e5d75863</span>
+       </div>
+      </div>
+      <div class="oneinfo-device-lie">
+       <div>
+        最近使用时间：
+        <span class="ng-binding">2018-05-27</span>
+       </div>
+       <div class="itext">
+        设备使用用户数：
+        <span class="ng-binding">2人</span>
+       </div>
+       <div class="itext ng-hide">
+        有无活体攻击：
+        <span class="ng-binding"></span>
+       </div>
+       <div class="itext">
+        可疑设备：
+        <span class="ng-binding">是</span>
+       </div>
+      </div>
+      <div class="oneinfo-device-lie">
+       <div class="ng-hide">
+        真实IP：
+        <span class="ng-binding"></span>
+       </div>
+       <div class="ng-hide">
+        归属地：
+        <span class="ng-binding"></span>
+       </div>
+       <div>
+        设备使用代理：
+        <span class="ng-binding">否</span>
+       </div>
+       <div>
+        网络类型：
+        <span class="ng-binding">WiFi</span>
+       </div>
+      </div>
+      <div class="oneinfo-device-lie">
+       <div>
+        设备越狱（root）：
+        <span class="ng-binding">否</span>
+       </div>
+       <div class="itext">
+        是否安装作弊软件：
+        <span class="ng-binding">否</span>
+       </div>
+       <div class="itext">
+        借贷App安装数量：
+        <span class="ng-binding">1</span>
+       </div>
+      </div>
+     </div>
+    </div>
+  <script src="js/echarts.min.js"></script> 
+  <script src="js/jquery.min.js"></script> 
+  <script src="js/oldMain.js"></script> 
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+
+//基础信息
+echartMap({
+    id:'user_chart_kedu',
+    option:{
+                grid: {
+                    top: "0",
+                    bottom: "0",
+                    left: "0",
+                    right: "0"
+                },
+                title: {
+                    x: "center",
+                    top: 10
+                },
+                tooltip: {
+                    formatter: "{a} <br/>{b} : {c}%"
+                },
+                series: [{
+                    name: "有盾贷前模型",
+                    type: "gauge",
+                    min: 0,
+                    max: 100,
+                    splitNumber: 20,
+                    axisLine: {
+                        show: !0,
+                        lineStyle: {
+                            width: 10,
+                            shadowBlur: 0,
+                            color: [[30 / 100, '#25b97d'], [55 / 100, '#5bc3e1'], [80 / 100,  '#ffbf3b'], [1, '#fd7065']]
+                        }
+                    },
+                    axisTick: {
+                        show: !0,
+                        splitNumber: 1
+                    },
+                    splitLine: {
+                        show: !1
+                    },
+                    axisLabel: {
+                        formatter: function(e) {
+                          var sss = [30,55,80]
+                            if (e == 0 || e == 100 || sss.indexOf(e) != -1) {
+                                    return e;
+                                } else {
+                                    return "";
+                                }
+                        },
+                        interval: 20,
+                        textStyle: {
+                            fontSize: 10,
+                            fontWeight: "",
+                            color: "#9e9e9e"
+                        },
+                        distance: -15
+                    },
+                    pointer: {
+                        show: !1
+                    },
+                    title: {
+                        textStyle: {
+                            color: "#00b1e2"
+                        }
+                    },
+                    detail: {
+                        formatter: 5,
+                        offsetCenter: [0, -10],
+                        textStyle: {
+                            fontSize: 64,
+                            color: "#00b1e2"
+                        }
+                    },
+                    data: [{
+                        name: "中等风险",
+                        value: 59
+                    }]
+                }]
+            }
+})
+
+//图表1
+echartMap({
+    id:'user_chart_show1',
+    option:{
+                grid: {
+                    top: "40",
+                    bottom: "40"
+                },
+                legend: {
+                    data: ["申请借款", "借款"],
+                    right: 40,
+                    itemGap: 60
+                },
+                xAxis: [{
+                    type: "category",
+                    data: ["总计", "近6月", "近3月", "近1月"]
+                }],
+                yAxis: [{
+                    show: !1,
+                    type: "value",
+                    max: 100
+                }],
+                series: [{
+                    name: "申请借款",
+                    type: "bar",
+                    barGap: "0",
+                    barWidth: 30,
+                    label: {
+                        normal: {
+                            show: !0,
+                            position: "top"
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#4694d9"
+                        }
+                    },
+                    data: [10, 50, 25,90]
+                },
+                {
+                    name: "借款",
+                    type: "bar",
+                    barGap: "0",
+                    barWidth: 30,
+                    label: {
+                        normal: {
+                            show: !0,
+                            position: "top"
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#77d7e8"
+                        }
+                    },
+                    data: [5, 70, 30, 30]
+                }]
+            }
+})
+
+//图表2
+echartMap({
+    id:'user_chart_show2',
+    option:{
+                grid: {
+                    top: "40",
+                    bottom: "40"
+                },
+                legend: {
+                    data: ["还款"],
+                    left: "0"
+                },
+                xAxis: [{
+                    type: "category",
+                    data: ["总计", "近6月", "近3月", "近1月"]
+                }],
+                yAxis: [{
+                    show: !1,
+                    type: "value",
+                    max: 100
+                }],
+                series: [{
+                    name: "还款",
+                    type: "bar",
+                    barWidth: 30,
+                    label: {
+                        normal: {
+                            show: !0,
+                            position: "top"
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#25b97d"
+                        }
+                    },
+                    data: [5, 10, 20, 60]
+                }]
+            }
+})
+  </script>
+ </body>
+</html>

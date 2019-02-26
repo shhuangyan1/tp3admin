@@ -1,0 +1,19 @@
+var _root_doc_={
+  "v40_doc_ios":"https://static.udcredit.com/doc/yhy/iOS_ll_V40/V40/index.html",
+  "v40_doc_android":"https://static.udcredit.com/doc/yhy/android_ll_V40/V40/index.html",
+  "v40_sdk_ios":"./SDK/IOS/UDSDKV4.0.ll.20180424.zip",
+  "v40_sdk_android":"./SDK/Android/udidsafe-V4.0 LL-2017_12_21.aar",
+  "v40_demo_ios":"./SDK/IOS/V40.ll.Demo.20180424.zip",
+  "v40_demo_android":"./SDK/Android/AndroidDemoV40_ll.rar",
+
+  "v43_doc_ios":"https://static.udcredit.com/doc/yhy/iOS_ll/V43/index.html",
+  "v43_doc_android":"https://static.udcredit.com/doc/yhy/android_ll/V43/index.html",
+  "v43_sdk_ios":"./SDK/IOS/UDSDKV4.3.ll.20180427.zip",
+  "v43_sdk_android":"./SDK/Android/idsafesV43_ll-2018_03_29.aar",
+  "v43_demo_ios":"./SDK/IOS/V43.ll.Demo.20180427.zip",
+  "v43_demo_android":"./SDK/Android/AndroidDemoV43_ll.rar",
+
+  "shujv_doc":"https://static.udcredit.com/doc/idsafe/dataservice/V40/index.html",
+  "yhy_doc":"https://static.udcredit.com/doc/idsafe/dataportrait/portrait/index.html",
+
+}

@@ -1,0 +1,941 @@
+<include file="Shared:Header" />
+
+<head>
+	<style type="text/css">
+		fieldset {
+			padding: 20px 50px;
+			margin-bottom: 10px;
+		}
+
+		.clearfix-self:before,
+		.clearfix-self:after {
+			display: table;
+			content: " ";
+		}
+
+		.clearfix-self:after {
+			clear: both;
+		}
+
+		.pd-0 {
+			padding: 0;
+		}
+
+		.width-50 {
+			width: 50px;
+			text-align: center;
+		}
+
+		.text-right {
+			text-align: left;
+			/*				text-align: right;*/
+		}
+
+		.text-red {
+			color: red;
+		}
+
+		.clearfix-self .item {
+			float: left;
+			margin: 10px 0 0;
+		}
+
+		.clearfix-self .item1 {
+			width: 40%;
+			text-align: right;
+		}
+
+		.clearfix-self .item2 {
+			width: 60%;
+			text-align: right;
+		}
+
+		.clearfix-self select,
+		.clearfix-self input {
+			box-sizing: border-box;
+			height: 26px;
+			line-height: 26px;
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+<div class="easyui-panel" data-options="fit:true,border:false,bodyCls:'Bodybg',footer:'#ft'">
+	<form action="" method="post">
+		<fieldset>
+			<legend>新颜</legend>
+			<div class="clearfix-self">
+				<p class="item item1">
+					1<span class="text-red">*</span>贷款行为分<
+					<input class="width-50" type="number" name="xy_100001" value="{$guize.xy_100001}">分 1-1000分表示新颜对于该用户的申请准入的评估
+					<select name="xy_100001_status">
+						<?php if($guize['shouji_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					2<span class="text-red">*</span>贷款行为置信度<
+					<input class="width-50" type="number" name="daikuanyuqi_num" value="{$guize.daikuanyuqi_num}"> 分，1-100表示新颜征信计算出来的贷款行为分的置信度
+					<select name="daikuanyuqi_num_status">
+						<?php if($guize['daikuanyuqi_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					3<span class="text-red">*</span>贷款放款总订单数>
+					<input class="width-50" type="number" name="xy_100007" value="{$guize.xy_100007}"> 个，1-N表示命中查询主体的总贷款放款订单数(12个月内)
+					<select name="xy_100007_status">
+						<?php if($guize['xy_100007_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					4<span class="text-red">*</span>结清贷款订单>
+					<input class="width-50" type="number" name="xy_100008" value="{$guize.xy_100008}"> 个，1-N表示命中查询主体的已结清贷款订单数(12个月内)
+					<select name="xy_100008_status">
+						<?php if($guize['xy_100008_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					5<span class="text-red">*</span>贷款逾期订单数>
+					< <input class="width-50" type="number" name="xy_100009" value="{$guize.xy_100009}"> 个，1-N表示命中查询主体的逾期贷款订单数(12个月内)
+					<select name="xy_100009_status">
+						<?php if($guize['xy_100009_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					6<span class="text-red">*</span>贷款机构数>
+					<input class="width-50" type="number" name="xy_100010" value="{$guize.xy_100010}"> 个，1-N表示命中查询主体的贷款放款机构数(12个月内)
+					<select name="xy_100010_status">
+						<?php if($guize['xy_100010_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>魔蝎运营商</legend>
+			<div class="clearfix-self">
+				<p class="item item1">
+					1<span class="text-red">*</span>入网时长时间低于
+					<input class="width-50" type="number" name="ruwangshijian_num" value="{$guize.ruwangshijian_num}"> 个月，
+					<select name="ruwangshijian_num_status">
+						<?php if($guize['ruwangshijian_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					2<span class="text-red">*</span>前十个有效手机号码与通讯录对比命中
+					<input class="width-50" type="number" name="shouji_num" value="{$guize.shouji_num}"> 个以上无匹配号码，
+					<select name="shouji_num_status">
+						<?php if($guize['shouji_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					3<span class="text-red">*</span>通讯录和通话记录比对小于
+					<input class="width-50" type="number" name="tonghuajilu_num" value="{$guize.tonghuajilu_num}"> 条记录，
+					<select name="tonghuajilu_num_status">
+						<?php if($guize['tonghuajilu_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					4<span class="text-red">*</span>手机通讯录不重复号码低于
+					<input class="width-50" type="number" name="chongfuhaoma_num" value="{$guize.chongfuhaoma_num}"> 个，
+					<select name="chongfuhaoma_num_status">
+						<?php if($guize['chongfuhaoma_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					5<span class="text-red">*</span>平均通话时长
+					< <input class="width-50" type="number" name="pingjuntime_num" value="{$guize.pingjuntime_num}"> 条记录，
+					<select name="pingjuntime_num_status">
+						<?php if($guize['pingjuntime_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					6<span class="text-red">*</span>手机未实名认证(未获取数据不在名单之内)
+					<input class="width-50" type="number" name="shoujirenzheng_num" value="{$guize.shoujirenzheng_num}"> 个，
+					<select name="shoujirenzheng_num_status">
+						<?php if($guize['shoujirenzheng_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>淘宝支付宝</legend>
+			<div class="clearfix-self">
+				<!--<p class="item item1">
+                    1<span class="text-red">*</span>芝麻分值小于
+                    <input class="width-50" type="number" name="zhimafen" value="{$guize.zhimafen}"> 分，
+                    <select name="zhimafen_status">
+                        <?php if($guize['zhimafen_status']==1){ ?>
+                        <option value="1" selected>手工复审</option>
+                        <option value="2">直接拒绝</option>
+                        <?php }else{ ?>
+                        <option value="1">手工复审</option>
+                        <option value="2" selected>直接拒绝</option>
+                        <?php } ?>
+                    </select>
+                </p>-->
+
+				<p class="item item1">
+					1<span class="text-red">*</span>江苏省芝麻分值小于
+					<input class="width-50" type="number" name="zhimafen" value="{$guize.zhimafen}"> 分，
+					<select name="zhimafen_status">
+						<?php if($guize['zhimafen_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+
+				<p class="item item2">
+					2<span class="text-red">*</span>花呗当期逾期状态 ：已经逾期
+
+					<select name="huabeiyuqi_status">
+						<?php if($guize['huabeiyuqi_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					3<span class="text-red">*</span>借呗当期逾期状态 ：已经逾期
+
+					<select name="jiebeiyuqi_status">
+						<?php if($guize['jiebeiyuqi_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					4<span class="text-red">*</span>淘宝收货地址：无
+
+					<select name="taobaodizhi_status">
+						<?php if($guize['taobaodizhi_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					5<span class="text-red">*</span>花呗授信额度小于
+					<input class="width-50" type="number" name="huebeiedu" value="{$guize.huebeiedu}">元
+
+					<select name="huebeiedu_status">
+						<?php if($guize['huebeiedu_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					6<span class="text-red">*</span>花呗可用额度小于
+					<input class="width-50" type="number" name="jiebeiedu" value="{$guize.jiebeiedu}">元
+					<select name="jiebeiedu_status">
+						<?php if($guize['jiebeiedu_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<div class="clearfix-self">
+				<p class="item item1">
+					7<span class="text-red">*</span>绑定信用卡张数>
+					<input class="width-50" type="number" name="xinyongka_num" value="{$guize.xinyongka_num}"> 个，
+					<select name="xinyongka_num_status">
+						<?php if($guize['xinyongka_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+
+
+				<p class="item item2">
+					8<span class="text-red">*</span>青海省芝麻分值小于
+					<input class="width-50" type="number" name="qinghaizhimafen" value="{$guize.qinghaizhimafen}"> 分，
+					<select name="qinghaizhimafen_status">
+						<?php if($guize['zhimafen_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+
+
+					<div class="clearfix-self">
+						<p class="item item1">
+							9<span class="text-red">*</span>北京市芝麻分值小于
+							<input class="width-50" type="number" name="beijingzhimafen" value="{$guize.beijingzhimafen}"> 分，
+							<select name="beijingzhimafen_status">
+								<?php if($guize['zhimafen_status']==1){ ?>
+								<option value="1" selected>手工复审</option>
+								<option value="2">直接拒绝</option>
+								<?php }else{ ?>
+								<option value="1">手工复审</option>
+								<option value="2" selected>直接拒绝</option>
+								<?php } ?>
+							</select>
+						</p>
+
+						<p class="item item2">
+							10<span class="text-red">*</span>天津市芝麻分值小于
+							<input class="width-50" type="number" name="tianjingzhimafen" value="{$guize.tianjingzhimafen}"> 分，
+							<select name="tianjingzhimafen_status">
+								<?php if($guize['zhimafen_status']==1){ ?>
+								<option value="1" selected>手工复审</option>
+								<option value="2">直接拒绝</option>
+								<?php }else{ ?>
+								<option value="1">手工复审</option>
+								<option value="2" selected>直接拒绝</option>
+								<?php } ?>
+							</select>
+						</p>
+						<div class="clearfix-self">
+							<p class="item item1">
+								11<span class="text-red">*</span>上海市芝麻分值小于
+								<input class="width-50" type="number" name="shanghaizhimafen" value="{$guize.shanghaizhimafen}"> 分，
+								<select name="shanghaizhimafen_status">
+									<?php if($guize['zhimafen_status']==1){ ?>
+									<option value="1" selected>手工复审</option>
+									<option value="2">直接拒绝</option>
+									<?php }else{ ?>
+									<option value="1">手工复审</option>
+									<option value="2" selected>直接拒绝</option>
+									<?php } ?>
+								</select>
+							</p>
+
+							<p class="item item2">
+								12<span class="text-red">*</span>重庆市芝麻分值小于
+								<input class="width-50" type="number" name="chongqingzhimafen" value="{$guize.chongqingzhimafen}"> 分，
+								<select name="chongqingzhimafen_status">
+									<?php if($guize['zhimafen_status']==1){ ?>
+									<option value="1" selected>手工复审</option>
+									<option value="2">直接拒绝</option>
+									<?php }else{ ?>
+									<option value="1">手工复审</option>
+									<option value="2" selected>直接拒绝</option>
+									<?php } ?>
+								</select>
+							</p>
+							<div class="clearfix-self">
+								<p class="item item1">
+									13<span class="text-red">*</span>河北省芝麻分值小于
+									<input class="width-50" type="number" name="hebeizhimafen" value="{$guize.hebeizhimafen}"> 分，
+									<select name="hebeizhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									14<span class="text-red">*</span>山西省芝麻分值小于
+									<input class="width-50" type="number" name="shanxizhimafen" value="{$guize.shanxizhimafen}"> 分，
+									<select name="shanxizhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									15<span class="text-red">*</span>辽宁省芝麻分值小于
+									<input class="width-50" type="number" name="liaoningzhimafen" value="{$guize.liaoningzhimafen}"> 分，
+									<select name="liaoningzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									16<span class="text-red">*</span>吉林省芝麻分值小于
+									<input class="width-50" type="number" name="jilinzhimafen" value="{$guize.jilinzhimafen}"> 分，
+									<select name="jilinzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									17<span class="text-red">*</span>黑龙江省芝麻分值小于
+									<input class="width-50" type="number" name="heilongjiangzhimafen" value="{$guize.heilongjiangzhimafen}"> 分，
+									<select name="heilongjiangzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									18<span class="text-red">*</span>浙江省芝麻分值小于
+									<input class="width-50" type="number" name="zhejiangzhimafen" value="{$guize.zhejiangzhimafen}"> 分，
+									<select name="zhejiangzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									19<span class="text-red">*</span>安徽省芝麻分值小于
+									<input class="width-50" type="number" name="anhuizhimafen" value="{$guize.anhuizhimafen}"> 分，
+									<select name="anhuizhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									20<span class="text-red">*</span>福建省芝麻分值小于
+									<input class="width-50" type="number" name="fujianzhimafen" value="{$guize.fujianzhimafen}"> 分，
+									<select name="fujianzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									21<span class="text-red">*</span>江西省芝麻分值小于
+									<input class="width-50" type="number" name="jiangxizhimafen" value="{$guize.jiangxizhimafen}"> 分，
+									<select name="jiangxizhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									22<span class="text-red">*</span>山东省芝麻分值小于
+									<input class="width-50" type="number" name="shandongzhimafen" value="{$guize.shandongzhimafen}"> 分，
+									<select name="shandongzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									23<span class="text-red">*</span>河南省芝麻分值小于
+									<input class="width-50" type="number" name="henanzhimafen" value="{$guize.henanzhimafen}"> 分，
+									<select name="henanzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									24<span class="text-red">*</span>湖北省芝麻分值小于
+									<input class="width-50" type="number" name="hubeizhimafen" value="{$guize.hubeizhimafen}"> 分，
+									<select name="hubeizhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									25<span class="text-red">*</span>湖南省芝麻分值小于
+									<input class="width-50" type="number" name="hunanzhimafen" value="{$guize.hunanzhimafen}"> 分，
+									<select name="hunanzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									26<span class="text-red">*</span>广东省芝麻分值小于
+									<input class="width-50" type="number" name="guangdongzhimafen" value="{$guize.guangdongzhimafen}"> 分，
+									<select name="guangdongzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									27<span class="text-red">*</span>海南省芝麻分值小于
+									<input class="width-50" type="number" name="hainanzhimafen" value="{$guize.hainanzhimafen}"> 分，
+									<select name="hainanzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									28<span class="text-red">*</span>四川省芝麻分值小于
+									<input class="width-50" type="number" name="sichuanzhimafen" value="{$guize.sichuanzhimafen}"> 分，
+									<select name="sichuanzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									29<span class="text-red">*</span>贵州省芝麻分值小于
+									<input class="width-50" type="number" name="guizhouzhimafen" value="{$guize.guizhouzhimafen}"> 分，
+									<select name="guizhouzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									30<span class="text-red">*</span>云南省芝麻分值小于
+									<input class="width-50" type="number" name="yunnanzhimafen" value="{$guize.yunnanzhimafen}"> 分，
+									<select name="yunnanzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item1">
+									31<span class="text-red">*</span>陕西省芝麻分值小于
+									<input class="width-50" type="number" name="shanxi_zhimafen" value="{$guize.shanxi_zhimafen}"> 分，
+									<select name="shanxi_zhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+								<p class="item item2">
+									32<span class="text-red">*</span>甘肃省芝麻分值小于
+									<input class="width-50" type="number" name="gansuzhimafen" value="{$guize.gansuzhimafen}"> 分，
+									<select name="gansuzhimafen_status">
+										<?php if($guize['zhimafen_status']==1){ ?>
+										<option value="1" selected>手工复审</option>
+										<option value="2">直接拒绝</option>
+										<?php }else{ ?>
+										<option value="1">手工复审</option>
+										<option value="2" selected>直接拒绝</option>
+										<?php } ?>
+									</select>
+								</p>
+
+			</div>
+		</fieldset>
+
+
+
+
+		<!--<input type="submit" value="保存"/>-->
+		<fieldset>
+			<legend>有盾</legend>
+			<div class="clearfix-self">
+				<p class="item item1">
+					1<span class="text-red">*</span>系统建议高于80分极高风险 此处可以适当填写
+					<input class="width-50" type="number" name="youdungao" value="{$guize.youdungao}"> 分以上，
+					<select name="youdungao_status">
+						<?php if($guize['youdungao_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					2<span class="text-red">*</span>55-80分为中高风险
+					<select name="youdun_zhong_status">
+						<?php if($guize['youdun_zhong_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					3<span class="text-red">*</span>少于50分为低风险
+					<select name="youdun_di_status">
+						<?php if($guize['youdun_di_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+
+				<p class="item item2">
+					4<span class="text-red">*</span>总申请贷款平台数>
+					<input class="width-50" type="number" name="shenqing_num" value="{$guize.shenqing_num}"> 个，
+					<select name="shenqing_num_status">
+						<?php if($guize['shenqing_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					5<span class="text-red">*</span>总借款平台数>
+					<input class="width-50" type="number" name="jiekuan_num" value="{$guize.jiekuan_num}"> 条记录，
+					<select name="jiekuan_num_status">
+						<?php if($guize['jiekuan_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					6<span class="text-red">*</span>总还款平台数>
+					<input class="width-50" type="number" name="huankuan_pingtai_num" value="{$guize.huankuan_pingtai_num}"> 个，
+					<select name="huankuan_pingtai_num_status">
+						<?php if($guize['huankuan_pingtai_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+			<div class="clearfix-self">
+				<p class="item item1">
+					9<span class="text-red">*</span>总还款比数>
+					<input class="width-50" type="number" name="huankuan_cishu_num" value="{$guize.huankuan_cishu_num}"> 个，
+					<select name="huankuan_cishu_num_status">
+						<?php if($guize['huankuan_cishu_num_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					10<span class="text-red">*</span>命中作弊软件
+
+					<select name="zuobi_status">
+						<?php if($guize['zuobi_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+
+			</div>
+
+			<div class="clearfix-self">
+				<p class="item item1">
+					11<span class="text-red">*</span>命中安装极多借款app
+
+					<select name="anzhuang_status">
+						<?php if($guize['anzhuang_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				<p class="item item2">
+					17<span class="text-red">*</span>命中疑似欺诈名单库
+
+					<select name="qizha_status">
+						<?php if($guize['qizha_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				</p>
+			</div>
+
+			<div class="clearfix-self">
+				<p class="item item1">
+					13<span class="text-red">*</span>命中法院失信黑名单
+
+					<select name="fayuanshixin_status">
+						<?php if($guize['fayuanshixin_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+				<p class="item item2">
+					14<span class="text-red">*</span>命中网贷失信黑名单
+
+					<select name="wangdaishixin_status">
+						<?php if($guize['wangdaishixin_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+			</div>
+
+			<div class="clearfix-self">
+				<p class="item item1">
+					15<span class="text-red">*</span>命中网贷不良黑名单s
+
+					<select name="wangdaibuliang_status">
+						<?php if($guize['wangdaibuliang_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+
+				<p class="item item2">
+					16<span class="text-red">*</span>命中网贷短期逾期黑名单s
+
+					<select name="wangdaiyuqi_status">
+						<?php if($guize['wangdaiyuqi_status']==1){ ?>
+						<option value="1" selected>手工复审</option>
+						<option value="2">直接拒绝</option>
+						<?php }else{ ?>
+						<option value="1">手工复审</option>
+						<option value="2" selected>直接拒绝</option>
+						<?php } ?>
+					</select>
+				</p>
+
+			</div>
+
+
+		</fieldset>
+		<input type="submit" value="保存" />
+		<!--<input type="hidden" name="id" id="id" value="{$leida.id}" />-->
+	</form>
+
+</body>
+</div>
+<!--<div id="ft" style="padding:4px;text-align:center;height:40px;line-height:40px;">
+	<input onclick="$.XB.pagesave({
+    'url': 'http://sdcr.51xingdai.com/admin.php/Guize/Items/leida', 'fn': function (data) {
+        $.XB.success({
+            'message': data.message, 'fn': function () {
+                $.XB.topreload();
+            }
+        });
+    }
+	});" type="button" id="saveb" value=" 确定保存 ">
+</div>-->
+<include file="Shared:Footer" />

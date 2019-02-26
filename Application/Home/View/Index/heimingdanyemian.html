@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style type="text/css">
+			.clearfix-self:before,
+			.clearfix-self:after {
+			    display: table;
+			    content: " ";
+			}
+			.clearfix-self:after {
+				clear: both;
+			}
+			.pd-0 {
+				padding: 0;
+			}
+			.text-right {
+				text-align: right;
+			}
+			.text-black {
+				color: #eee;
+			}
+			.text-red {
+				color: red;
+			}
+			.report {
+				color: #000;
+				font-size: 12px;
+			}
+			.report .fl {
+				float: left;
+			}
+			.report .fr {
+				float: right;
+			}
+			.report .font-size-14 {
+				font-size: 14px;
+			}
+			.report .header > div {
+				width: 50%;
+				text-align: center;
+			}
+			.report .header {
+				padding: 10px 0;
+			}
+			.report .cont {
+				padding: 10px 20px 40px 10px;
+				border-top: 1px solid #eee;
+				border-bottom: 1px solid #eee;
+
+			}
+			.report .cont .base {
+				/*text-indent: 2em;*/
+				padding-left: 15px;
+			}
+			.report .cont .base .fl {
+				width: 33%;
+			}
+			/*.report .cont .label {
+				margin-top: 20px;
+			}
+			.report .cont .label h4 {
+				display: inline-block;
+				background: #cfe4e7;
+				padding: 6px 10px;
+				border-radius: 5px;
+				margin: 0;
+			}
+			.report .cont .label p {
+				text-indent: 2.5em;
+				font-size: 14px;
+			}
+			.report .cont .label table {
+				width: 100%;
+				margin-top: 20px;
+				background: #f5f5f5;
+				border: 1px solid #eee;
+				border-right: 0;
+			}
+			.report .cont .label table th,
+			.report .cont .label table td {
+				padding: 8px 5px;
+				text-align: center;
+			}
+			.report .cont .label table th {
+				border-right: 1px solid #eee;
+			}
+			.report .cont .label table td {
+				border-top: 1px solid #eee;
+				border-right: 1px solid #eee;
+			}*/
+			.report .btn-group {
+				text-align: center;
+				margin: 20px 0;
+			}
+			.report .btn-group .btn {
+				padding: 8px 15px;
+				border: 0;
+				cursor: pointer;
+				outline: none;
+			}
+			.report .btn-green {
+				background: #0fba96;
+				color: #fff;
+			}
+			.report .btn-green:hover,
+			.report .btn-green:active {
+				background: #0fa585;
+			}
+			.report .btn-grey {
+				background: #f5f5f5;
+				color: #0fba96;
+				margin-left: 20px;
+			}
+			.report .btn-grey:hover,
+			.report .btn-grey:active {
+				background: #e0dddd;
+			}
+			.report .remark {
+				padding: 10px 20px 40px;
+			}
+			.report .remark h4 {
+				color: #3c763d;
+			}
+			.panel-self {
+				border: 1px solid #d6e9c6;
+				border-right: 0;
+				margin-top: 15px;
+			}
+			.panel-self .panel-self-header,
+			.panel-self .panel-self-body,
+			.panel-self .panel-self-footer {
+		        border-right: 1px solid #d6e9c6;
+		        padding: 10px 15px;
+			}
+			.panel-self .panel-self-body {
+				/*padding: 0 15px;*/
+			}
+			.panel-self .panel-self-header {
+				color: #3c763d;
+			    background-color: #dff0d8;
+			}
+			.panel-self .panel-self-footer {
+				background-color: #f5f5f5;
+			}
+			.panel-self .panel-self-body {
+
+			}
+			.panel-self .panel-self-body p {
+				margin: 0;
+				padding: 5px 10px;
+				text-align: center;
+			}
+			.panel-self table {
+				width: 100%;
+			    table-layout: fixed;
+			}
+			.panel-self table th,
+			.panel-self table td {
+				padding: 8px;
+				border-right: 1px solid #d6e9c6;
+				border-bottom: 1px solid #d6e9c6;
+				text-align: center;
+				word-wrap: break-word;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="report">
+			<div class="clearfix-self header font-size-14">
+				<div class="fl">
+					报告详情-黑名单+借*宝检测
+				</div>
+				<div class="fr">
+					报告生成时间: {$postDate['time']}
+				</div>
+			</div>
+			<div class="cont">
+				<div class="clearfix-self base">
+					<div class="fl">用户姓名：<span class="text-black-light">{$postDate['name']}</span></div>
+					<div class="fl">手机号码：<span class="text-black-light">{$postDate['phone']}</span></div>
+					<div class="fl">身份证号：<span class="text-black-light">{$postDate['idcard']}</span></div>
+				</div>
+				<div class="panel-self">
+					<div class="panel-self-header">网贷黑名单：</div>
+					<div class="panel-self-body">
+						<?php if($data['NET_LOAN_BLACK_LIST']['hit']==1){ ?>
+						
+							<p class="text-red font-size-14">命中黑名单</p>
+							
+						<?php } ?>
+							
+							
+						<?php if($data['NET_LOAN_BLACK_LIST']['hit']==0){ ?>
+							
+							<p class="text-red font-size-14">未命中网贷黑名单</p>
+							
+						<?php } ?>
+							<?php if($data['NET_LOAN_BLACK_LIST']['hit']==-1){ ?>
+							
+							<p class="text-red font-size-14">三方接口异常 </p>
+							
+						<?php } ?>
+					</div>
+					
+					
+				</div>
+				<div class="panel-self">
+					<div class="panel-self-header">借*宝：</div>
+					<table cellspacing=0 cellpadding="0">
+						<tr>
+							<th>是否高风险用户</th>
+							<th>最近一次访问日期</th>
+							<th>30天以上逾期次数</th>
+							<th>历史逾期金额</th>
+							<th>最近一次逾期时间</th>
+							<th>最近一次逾期金额</th>
+							<th>当前逾期金额</th>
+							<th>当前逾期天数</th>
+							<th>首次逾期时间</th>
+							<th>首次逾期金额</th>
+							<th>最近一次还款时间</th>
+							<th>总还款次数</th>
+							<th>正在进行的贷款笔数</th>
+							<th>历史贷款笔数</th>
+							<th>历史总借款金额</th>
+						</tr>
+						<tr>
+							<td>{$data['JIE_DAI_BAO_LOAN']['is_high_risk_user']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['last_visit_dt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['30d_overdue_cnt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['his_overdue_amt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['last_overdue_dt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['last_overdue_amt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['curr_overdue_amt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['curr_overdue_days']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['first_overdue_dt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['first_overdue_amt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['last_repay_tm']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['repay_times']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['curr_debt_product_cnt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['total_in_order_cnt']}</td>
+							<td>{$data['JIE_DAI_BAO_LOAN']['total_in_order_amt']}</td>
+							
+						</tr>
+					</table>
+				</div>
+				<div class="panel-self">
+					<div class="panel-self-header">无*借条：</div>
+					<div class="panel-self-body">
+						<?php if($data['WU_YOU_LOAN']['hit']==1){ ?>
+						
+							<p class="text-red font-size-14">命中（存在当前45天以上逾期借条）</p>
+							
+						<?php } ?>
+							
+							
+						<?php if($data['WU_YOU_LOAN']['hit']==0){ ?>
+							
+							<p class="text-red font-size-14">未命中 </p>
+							
+						<?php } ?>
+							<?php if($data['WU_YOU_LOAN']['hit']==-1){ ?>
+							
+							<p class="text-red font-size-14">三方接口异常 </p>
+							
+						<?php } ?>
+					</div>
+					
+					
+				</div>
+				<div class="panel-self">
+					<div class="panel-self-header">借*宝：</div>
+					<table cellspacing=0 cellpadding="0">
+						<tr>
+							<th>当前逾期金额</th>
+							<th>最大逾期金额</th>
+							<th>7天逾期金额</th>
+							<th>7天逾期次数</th>
+							<th>30天逾期金额</th>
+							<th>30天逾期次数</th>
+							<th>累计借入人数</th>
+							<th>累计借入笔数</th>
+						</tr>
+						<tr>
+							<td>{$data['JIN_JIE_DAO_LOAN']['n_current_overdue_amt']}</td>
+							<td>{$data['JIN_JIE_DAO_LOAN']['n_to_overdue_max_amt']}</td>
+							<td>{$data['JIN_JIE_DAO_LOAN']['n_overdue_7days_amt']}</td>
+							<td>{$data['JIN_JIE_DAO_LOAN']['n_current_overdue_7days_cnt']}</td>
+							<td>{$data['JIN_JIE_DAO_LOAN']['n_overdue_30days_amt']}</td>
+							<td>{$data['JIN_JIE_DAO_LOAN']['n_overdue_30days_cnt']}</td>
+							<td>{$data['JIN_JIE_DAO_LOAN']['n_borrow_people_num']}</td>
+							<td>{$data['JIN_JIE_DAO_LOAN']['n_borrow_cnt']}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="btn-group">
+				<!--<button class="btn btn-green">确定</button>
+				<button class="btn btn-grey">取消</button>-->
+			</div>
+			<div class="remark">
+				<h4 class="font-size-14">返回字段说明:</h4>
+				<div class="panel-self">
+					<div class="panel-self-header">
+						A、所有金额类字段区间划分固定为：
+					</div>
+					<table cellpadding="0" cellspacing="0">
+						<tr>
+							<td>极高</td>
+							<td>较高</td>
+							<td>高</td>
+							<td>中</td>
+							<td>低</td>
+							<td>较低</td>
+							<td>极低</td>
+							<td>无</td>
+						</tr>
+						<tr>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+						</tr>
+					</table>
+					<div class="panel-self-footer">
+						涉及字段：历史逾期金额的撒发生发的萨芬的打工收入的风格是否都是给人家可能是个可能是gstrjkfgjrs.gdsfdfdgsdgres发表过不少人提供方便
+					</div>
+				</div>
+				<div class="panel-self">
+					<div class="panel-self-header">
+						B、所有次数笔数类字段区间划分固定为：
+					</div>
+					<table cellpadding="0" cellspacing="0">
+						<tr>
+							<td>极高</td>
+							<td>较高</td>
+							<td>高</td>
+							<td>中</td>
+							<td>低</td>
+							<td>较低</td>
+							<td>极低</td>
+							<td>无</td>
+						</tr>
+						<tr>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+						</tr>
+					</table>
+					<div class="panel-self-footer">
+						涉及字段：历史逾期金额的撒发生发的萨芬的打工收入的风格是否都是给人家可能是个可能是gstrjkfgjrs.gdsfdfdgsdgres发表过不少人提供方便
+					</div>
+				</div>
+				<div class="panel-self">
+					<div class="panel-self-header">
+						C、所有天数类字段区间划分固定为：
+					</div>
+					<table cellpadding="0" cellspacing="0">
+						<tr>
+							<td>极高</td>
+							<td>较高</td>
+							<td>高</td>
+							<td>中</td>
+							<td>低</td>
+							<td>较低</td>
+							<td>极低</td>
+							<td>无</td>
+						</tr>
+						<tr>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+							<td>[100000,=)</td>
+						</tr>
+					</table>
+					<div class="panel-self-footer">
+						涉及字段：历史逾期金额的撒发生发的萨芬的打工收入的风格是否都是给人家可能是个可能是gstrjkfgjrs.gdsfdfdgsdgres发表过不少人提供方便
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

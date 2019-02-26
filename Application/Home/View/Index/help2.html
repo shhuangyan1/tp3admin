@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style type="text/css">
+			.clearfix-self:before,
+			.clearfix-self:after {
+			    display: table;
+			    content: " ";
+			}
+			.clearfix-self:after {
+				clear: both;
+			}
+			.pd-0 {
+				padding: 0;
+			}
+			.text-right {
+				text-align: right;
+			}
+			.text-black {
+				color: #eee;
+			}
+			.text-red {
+				color: red;
+			}
+			.report {
+				color: #000;
+				font-size: 12px;
+			}
+			.report .fl {
+				float: left;
+			}
+			.report .fr {
+				float: right;
+			}
+			.report .font-size-14 {
+				font-size: 14px;
+			}
+			.report .header > div {
+				width: 50%;
+				text-align: center;
+			}
+			.report .header {
+				padding: 10px 0;
+			}
+			.report .cont {
+				padding: 10px 20px 40px 10px;
+				border-top: 1px solid #eee;
+				border-bottom: 1px solid #eee;
+
+			}
+			.report .cont .base {
+				text-indent: 2em;
+			}
+			.report .cont .base .fl {
+				width: 33%;
+			}
+			.report .cont .label {
+				margin-top: 20px;
+			}
+			.report .cont .label h4 {
+				display: inline-block;
+				background: #cfe4e7;
+				padding: 6px 10px;
+				border-radius: 5px;
+				margin: 0;
+			}
+			.report .cont .label p {
+				text-indent: 2.5em;
+				font-size: 14px;
+			}
+			.report .cont .label table {
+				width: 100%;
+				margin-top: 20px;
+				background: #f5f5f5;
+				border: 1px solid #eee;
+				border-right: 0;
+			}
+			.report .cont .label table th,
+			.report .cont .label table td {
+				padding: 8px 5px;
+				text-align: center;
+			}
+			.report .cont .label table th {
+				border-right: 1px solid #eee;
+			}
+			.report .cont .label table td {
+				border-top: 1px solid #eee;
+				border-right: 1px solid #eee;
+			}
+			.report .btn-group {
+				text-align: center;
+				margin: 20px 0;
+			}
+			.report .btn-group .btn {
+				padding: 8px 15px;
+				border: 0;
+				cursor: pointer;
+				outline: none;
+			}
+			.report .btn-green {
+				background: #0fba96;
+				color: #fff;
+			}
+			.report .btn-green:hover,
+			.report .btn-green:active {
+				background: #0fa585;
+			}
+			.report .btn-grey {
+				background: #f5f5f5;
+				color: #0fba96;
+				margin-left: 20px;
+			}
+			.report .btn-grey:hover,
+			.report .btn-grey:active {
+				background: #e0dddd;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="report">
+			<div class="clearfix-self header font-size-14">
+				<div class="fl">
+					报告详情-黑名单+借*宝检测
+				</div>
+				<div class="fr">
+					报告生成时间: 2018-08-09 18:09:09
+				</div>
+			</div>
+			<div class="cont">
+				<div class="clearfix-self base">
+					<div class="fl">用户姓名：<span class="text-black-light">宋林波</span></div>
+					<div class="fl">手机号码：<span class="text-black-light">18990907878</span></div>
+					<div class="fl">身份证号：<span class="text-black-light">411325199010097909</span></div>
+				</div>
+				<div class="label">
+					<h4>网贷黑名单：</h4>
+					<p class="text-red font-size-14">命中黑名单</p>
+				</div>
+				<div class="label">
+					<h4>借*宝：</h4>
+					<table cellspacing=0>
+						<tr>
+							<th>是否高风险用户</th>
+							<th>最近一次访问日期</th>
+							<th>30天以上逾期次数</th>
+							<th>历史逾期金额</th>
+							<th>最近一次逾期金额</th>
+							<th>当前逾期金额</th>
+							<th>当前逾期天数</th>
+							<th>首次逾期时间</th>
+							<th>首次逾期金额</th>
+							<th>最近一次还款时间</th>
+							<th>总还款次数</th>
+							<th>正在进行的贷款笔数</th>
+							<th>历史贷款笔数</th>
+							<th>历史总借款金额</th>
+						</tr>
+						<tr class="text-black-light">
+							<td>无</td>
+							<td>2018-09-09 18:09:09</td>
+							<td>低</td>
+							<td>高</td>
+							<td>2018-09-09 18:09:09</td>
+							<td>低</td>
+							<td>高</td>
+							<td>M1</td>
+							<td>2018-09-09 18:09:09</td>
+							<td>低</td>
+							<td>低</td>
+							<td>高</td>
+							<td>低</td>
+							<td>高</td>
+						</tr>
+					</table>
+				</div>
+				<div class="label">
+					<h4>无*借条：</h4>
+					<p class="font-size-14">用户当前无15天以上逾期</p>
+				</div>
+				<div class="label">
+					<h4>借*宝：</h4>
+					<table cellspacing=0>
+						<tr>
+							<th>当前逾期金额</th>
+							<th>最大逾期金额</th>
+							<th>7天逾期金额</th>
+							<th>7天逾期次数</th>
+							<th>30天逾期金额</th>
+							<th>30天逾期次数</th>
+							<th>累计借入人数</th>
+							<th>累计借入笔数</th>
+						</tr>
+						<tr>
+							<td>无</td>
+							<td>无</td>
+							<td>无</td>
+							<td>无</td>
+							<td>无</td>
+							<td>无</td>
+							<td>无</td>
+							<td>无</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="btn-group">
+				<button class="btn btn-green">确定</button>
+				<button class="btn btn-grey">取消</button>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-control" content="no-cache"/>
+    <meta http-equiv="Cache" content="no-cache"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/mozhang/mozhang.css"/>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Admin/mozhang/Chart.js"></script>
+    <script src="__PUBLIC__/Admin/mozhang/echarts.min.js"></script>
+    <
+    <!--    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+        <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://www.runoob.com/try/demo_source/jqueryui/style.css">
+        <script>
+            $(function() {
+                $( "#tabs" ).tabs();
+            });
+        </script>-->
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+    <div data-reactroot="">
+        <div>
+            <div class="ant-card _3QBdSAOvZth2Q4h0x65xSn ant-card-no-hovering ant-card-padding-transition">
+                <div class="ant-card-body" style="padding: 0px;">
+                    <div class="ant-row-flex ant-row-flex-space-between ant-row-flex-middle qFVcsFNzgPfnnL7Kj5S7j">
+                        <div class="ant-col-2 NpxMT-ndlJ_6BTRUoFr0_"><span
+                                class="ant-avatar NjnDTpmpgvPL5OVkh98Gu ant-avatar-lg ant-avatar-circle"><span
+                                class="ant-avatar-string"
+                                style="transform: scale(1); position: absolute; display: inline-block; left: calc(50% - 15px);"><span
+                                class="_3HxdGEMC3acnNS5JFlIApo">卢</span></span></span></div>
+                        <div class="ant-col-14 _1Czjl5i9TfzfXyrxopygNy">
+                            <div class="_3s0IOs0wMiTrby_uLTf7fR"><span class="_2hiQsbQrOkzdMHNP_pNin6">{$data.person_info.name}</span><span
+                                    class="_2qJDYACArFYaQiyqdYDhSK">{$data.person_info.gender}</span><span
+                                    class="_1BOVEiWbNYubL2sWXh0pqT">{$data.person_info.age}</span></div>
+                            <div class="_2_wmkGgNK83cHqK3l3IOTE"><span class="_2tT9BMV-lclp5v2r2nnXks">身份证号：</span><span
+                                    class="_2ZJVZY9j7srrRHZYt1KzCe">{$data.person_info.idcard} | {$data.person_info.idcard_location}</span><span
+                                    class="_2WzxNFKtGtjdwaxDe8JqeY">有效</span></div>
+                            <div class="_1ZYHWEwtdrhrhrfB1RvSOq">
+                                <div class="_2CwQkB7LvoRl9pAbofDHh2"><span
+                                        class="_2tT9BMV-lclp5v2r2nnXks">手机号码：</span><span
+                                        class="_2ZJVZY9j7srrRHZYt1KzCe">  {$data.person_info.mobile} | {$data.person_info.mobile_location}
+                                    <!-- /react-text --></span></div>
+                                <div class="_38PqrOMbeRXAcAhFeoe1kZ"><span
+                                        class="_2tT9BMV-lclp5v2r2nnXks">联系邮箱：</span><span
+                                        class="_2ZJVZY9j7srrRHZYt1KzCe">{$data.person_info.email}</span></div>
+                            </div>
+                            <div class="_1h_nYMCb5FuaTRti6eoj_9"><span
+                                    class="_2tT9BMV-lclp5v2r2nnXks">是否导入过运营商数据：</span><span
+                                    class="_2ZJVZY9j7srrRHZYt1KzCe">{$data.verification_info.has_carrier_data}</span><span class=""></span></div>
+                        </div>
+                        <div class="ant-col-8 _3O_O6N9OLnae0Hg_Z6WSjV" style="display:flex;">
+                            <div class="DbgrxJApSPbEmYYc9nKaW" style="flex: 1;"><h5 class="_2tT9BMV-lclp5v2r2nnXks">查询结果</h5>
+                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">成功</p></div>
+                            <div class="gnKD5xBiTTG-wdoV8VM88" style="flex: 1;"><h5 class="_2tT9BMV-lclp5v2r2nnXks">涉黑评分(越高越好)</h5>
+                                <p class="_2ZJVZY9j7srrRHZYt1KzCe" style="color: black;">{$data.mobile_info.match_score}</p></div>
+                            <div style="flex: 1;"><h5 class="_2tT9BMV-lclp5v2r2nnXks">失信情况</h5>
+                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">{$data.untrusted_info.courtcase_cnt}</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin: 20px">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#yunyingshang" data-toggle="tab">运营商模块</a>
+                    </li>
+                    <li>
+                        <a href="#duotou" data-toggle="tab">多头信息</a>
+                    </li>
+                    <li>
+                        <a href="#shixin" data-toggle="tab">失信情况</a>
+                    </li>
+                    <li>
+                        <a href="#qqqun" data-toggle="tab">QQ群风险</a>
+                    </li>
+                    <li>
+                        <a href="#shebei" data-toggle="tab">设备指纹风险</a>
+                    </li>
+                    <li>
+                        <a href="#biangeng" data-toggle="tab">变更信息</a>
+                    </li>
+                    <li>
+                        <a href="#heimingdan" data-toggle="tab">黑名单信息</a>
+                    </li>
+                </ul>
+
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="yunyingshang">
+                        <div style="display:flex">
+                            <div style="flex: 1;padding: 10px;">
+                                <h1 style="color: #337ab7;text-align: center;">联系人</h1>
+                                <div id="main" style=" width: 100%;height:500px;"></div>
+                            </div>
+                            <div style="flex: 1;padding: 10px;">
+                                <h1 style="color: #337ab7;text-align: center;">亲密联系人</h1>
+                                <div id="qinmi" style="width: 100%;height:500px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="duotou">
+                        <div style="display: flex;width: 100%; margin: 20px;">
+                            <div style="flex: 1;">
+                                <div style="display: flex;">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+
+                            </div>
+                            <div style="flex: 1;">
+
+                            </div>
+                        </div>
+
+
+                        <!--<div class="htmleaf-content">
+                                                    <div class="demo-chat" style="width: 50%" >
+                                                        <canvas id="canvas" height="450" width="600"></canvas>
+                                                    </div>
+                                                </div>-->
+                    </div>
+                    <div class="tab-pane fade" id="shixin">
+                        <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+                    </div>
+                    <div class="tab-pane fade" id="qqqun">
+                        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="shebei">
+                        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="biangeng">
+                        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="heimingdan">
+                        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+           <!-- <div class="ant-tabs ant-tabs-top _15Qrq52Wo3WZBST05nqLZQ ant-tabs-line">
+                <div id="myTabContent" class="tab-content"style="margin-left: 0%;">
+                    <div>
+                        <div class="ant-card u5oJuLgTeXBbbE673NqDI ant-card-padding-transition">
+                            <div class="ant-card-body"><h2 class="_2tT9BMV-lclp5v2r2nnXks">运营商模块</h2>
+                                <ul class="ant-menu ant-menu-horizontal ant-menu-light ant-menu-root" role="menu"
+                                    aria-activedescendant="" tabindex="0">
+                                    <li class="ant-menu-item-selected ant-menu-item" role="menuitem"
+                                        aria-selected="true">联系人
+                                    </li>
+                                    <li class="ant-menu-item" role="menuitem" aria-selected="false">亲密联系人</li>
+                                </ul>
+                                <div class="_3HxdGEMC3acnNS5JFlIApo"><span class="_3MjY-Y3f_mj7-KBGGW8o2F">&lt;!&ndash; react-text: 74 &ndash;&gt;近30天直接联系人命中黑名单的类型:
+                                    &lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 75 &ndash;&gt;-&lt;!&ndash; /react-text &ndash;&gt;</span><span
+                                        class="rX5yZ09pl2DutYUGOeVby"><div class="ant-radio-group"><label
+                                        class="ant-radio-button-wrapper"><span class="ant-radio-button"><input
+                                        type="radio" class="ant-radio-button-input" value="on"><span
+                                        class="ant-radio-button-inner"></span></span><span>180天</span></label><label
+                                        class="ant-radio-button-wrapper"><span class="ant-radio-button"><input
+                                        type="radio" class="ant-radio-button-input" value="on"><span
+                                        class="ant-radio-button-inner"></span></span><span>90天</span></label><label
+                                        class="ant-radio-button-wrapper"><span class="ant-radio-button"><input
+                                        type="radio" class="ant-radio-button-input" value="on"><span
+                                        class="ant-radio-button-inner"></span></span><span>30天</span></label></div></span>
+                                </div>
+                                <div>
+                                    <div>&lt;!&ndash; react-empty: 102 &ndash;&gt;&lt;!&ndash; react-empty: 103 &ndash;&gt;&lt;!&ndash; react-empty: 104 &ndash;&gt;
+                                        &lt;!&ndash; react-empty: 105 &ndash;&gt;
+                                        <div style="position:relative;">
+                                            <canvas id="canvas_1" width="437" height="400"
+                                                    style="width: 437px; height: 400px; cursor: default;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ant-row u5oJuLgTeXBbbE673NqDI" style="margin-left: -12px; margin-right: -12px;">
+                            <div class="ant-col-12 vmUeo4AE-P7POKk_25W1h"
+                                 style="padding-left: 12px; padding-right: 12px;">
+                                <div class="ant-card">
+                                    <div class="ant-card-head">
+                                        <div class="ant-card-head-title">多头信息 - 申请多头</div>
+                                    </div>
+                                    <div class="ant-card-body">
+                                        <div class="ant-row">
+                                            <div class="ant-col-8"><h5 class="_2tT9BMV-lclp5v2r2nnXks">注册机构数量</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">8</p></div>
+                                            <div class="ant-col-8"><h5 class="_2tT9BMV-lclp5v2r2nnXks">
+                                                &lt;!&ndash; react-text: 118 &ndash;&gt;第三方渠道&lt;!&ndash; /react-text &ndash;&gt;<br>
+                                                &lt;!&ndash; react-text: 120 &ndash;&gt;注册机构数量&lt;!&ndash; /react-text &ndash;&gt;</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">0</p></div>
+                                            <div class="ant-col-8"><h5 class="_2tT9BMV-lclp5v2r2nnXks">机构查询次数</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">11</p></div>
+                                        </div>
+                                        <div class="ant-row _32cYTUrT7-tvolDTwB2UDx"><h5
+                                                class="_3qngo-AjiySaC8YMBiybUS">机构查询历史</h5>
+                                            <div class="ant-table-wrapper">
+                                                <div class="ant-spin-nested-loading">
+                                                    <div class="ant-spin-container">
+                                                        <div class="ant-table ant-table-small ant-table-scroll-position-left">
+                                                            <div class="ant-table-content">
+                                                                <div class="ant-table-body">
+                                                                    <table class="">
+                                                                        <colgroup>
+                                                                            <col>
+                                                                            <col>
+                                                                            <col>
+                                                                        </colgroup>
+                                                                        <thead class="ant-table-thead">
+                                                                        <tr>
+                                                                            <th class=""><span>&lt;!&ndash; react-text: 142 &ndash;&gt;查询日期
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</span></th>
+                                                                            <th class=""><span>&lt;!&ndash; react-text: 145 &ndash;&gt;查询机构类型
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</span></th>
+                                                                            <th class=""><span>&lt;!&ndash; react-text: 148 &ndash;&gt;是否为本机构
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</span></th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody class="ant-table-tbody">
+                                                                        <tr class="ant-table-row  ant-table-row-level-0">
+                                                                            <td class=""><span
+                                                                                    class="ant-table-row-indent indent-level-0"
+                                                                                    style="padding-left: 0px;"></span>
+                                                                                &lt;!&ndash; react-empty: 153 &ndash;&gt;
+                                                                                &lt;!&ndash; react-text: 154 &ndash;&gt;2017-01-22
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 156 &ndash;&gt;
+                                                                                CASH_LOAN&lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 158 &ndash;&gt;否
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        </tr>
+                                                                        <tr class="ant-table-row  ant-table-row-level-0">
+                                                                            <td class=""><span
+                                                                                    class="ant-table-row-indent indent-level-0"
+                                                                                    style="padding-left: 0px;"></span>
+                                                                                &lt;!&ndash; react-empty: 162 &ndash;&gt;
+                                                                                &lt;!&ndash; react-text: 163 &ndash;&gt;2017-02-24
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 165 &ndash;&gt;
+                                                                                CASH_LOAN&lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 167 &ndash;&gt;否
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        </tr>
+                                                                        <tr class="ant-table-row  ant-table-row-level-0">
+                                                                            <td class=""><span
+                                                                                    class="ant-table-row-indent indent-level-0"
+                                                                                    style="padding-left: 0px;"></span>
+                                                                                &lt;!&ndash; react-empty: 171 &ndash;&gt;
+                                                                                &lt;!&ndash; react-text: 172 &ndash;&gt;2018-08-01
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 174 &ndash;&gt;
+                                                                                CASH_LOAN&lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 176 &ndash;&gt;否
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        </tr>
+                                                                        <tr class="ant-table-row  ant-table-row-level-0">
+                                                                            <td class=""><span
+                                                                                    class="ant-table-row-indent indent-level-0"
+                                                                                    style="padding-left: 0px;"></span>
+                                                                                &lt;!&ndash; react-empty: 180 &ndash;&gt;
+                                                                                &lt;!&ndash; react-text: 181 &ndash;&gt;2018-08-01
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 183 &ndash;&gt;
+                                                                                CASH_LOAN&lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 185 &ndash;&gt;否
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        </tr>
+                                                                        <tr class="ant-table-row  ant-table-row-level-0">
+                                                                            <td class=""><span
+                                                                                    class="ant-table-row-indent indent-level-0"
+                                                                                    style="padding-left: 0px;"></span>
+                                                                                &lt;!&ndash; react-empty: 189 &ndash;&gt;
+                                                                                &lt;!&ndash; react-text: 190 &ndash;&gt;2018-08-02
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 192 &ndash;&gt;
+                                                                                CASH_LOAN&lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                            <td class="">&lt;!&ndash; react-text: 194 &ndash;&gt;否
+                                                                                &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="ant-pagination ant-table-pagination mini"
+                                                            unselectable="unselectable">
+                                                            <li title="上一页" tabindex="0"
+                                                                class="ant-pagination-disabled ant-pagination-prev"
+                                                                aria-disabled="true"><a
+                                                                    class="ant-pagination-item-link"></a></li>
+                                                            <li title="1"
+                                                                class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                                                                tabindex="0"><a>1</a></li>
+                                                            <li title="2"
+                                                                class="ant-pagination-item ant-pagination-item-2"
+                                                                tabindex="0"><a>2</a></li>
+                                                            <li title="3"
+                                                                class="ant-pagination-item ant-pagination-item-3"
+                                                                tabindex="0"><a>3</a></li>
+                                                            <li title="下一页" tabindex="0" class=" ant-pagination-next"
+                                                                aria-disabled="false"><a
+                                                                    class="ant-pagination-item-link"></a></li>
+                                                            <li class="ant-pagination-options">
+                                                                <div class="ant-pagination-options-quick-jumper">
+                                                                    &lt;!&ndash; react-text: 208 &ndash;&gt;跳至&lt;!&ndash; /react-text &ndash;&gt;<input
+                                                                        type="text" value="">&lt;!&ndash; react-text: 210 &ndash;&gt;页
+                                                                    &lt;!&ndash; /react-text &ndash;&gt;</div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ant-col-12 eDVg9Dzm_-FGxhbp4SCCV"
+                                 style="padding-left: 12px; padding-right: 12px;">
+                                <div class="ant-card">
+                                    <div class="ant-card-body" style="padding: 0px;">
+                                        <div class="_3Nigwi7DTGhohYiwn1YPoM"><h3 class="_1B-78VJvGtIX26yR_Y3lzj">多头信息 -
+                                            机构类型</h3>
+                                            <div class="ant-radio-group"><label
+                                                    class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"><span
+                                                    class="ant-radio-button ant-radio-button-checked"><input
+                                                    type="radio" class="ant-radio-button-input" value="on"><span
+                                                    class="ant-radio-button-inner"></span></span><span>ZHENGXIN</span></label><label
+                                                    class="ant-radio-button-wrapper"><span
+                                                    class="ant-radio-button"><input type="radio"
+                                                                                    class="ant-radio-button-input"
+                                                                                    value="on"><span
+                                                    class="ant-radio-button-inner"></span></span><span>CASH_LOAN</span></label>
+                                            </div>
+                                        </div>
+                                        <div class="_1-Xw-tc26wr8YdwLMoo7D2"><h5 class="_1KcFkhFiEi6Z1zWR7rTk3Q">
+                                            多平台借贷分析-近X天贷款申请次数</h5>
+                                            <div>
+                                                <div>&lt;!&ndash; react-empty: 231 &ndash;&gt;&lt;!&ndash; react-empty: 232 &ndash;&gt;
+                                                    &lt;!&ndash; react-empty: 233 &ndash;&gt;
+                                                    <div style="position:relative;">
+                                                        <canvas id="canvas_2" width="166.5" height="246"
+                                                                style="width: 166.5px; height: 246px; cursor: default;"></canvas>
+                                                        <div class="g2-tooltip"
+                                                             style="position: absolute; visibility: hidden; white-space: nowrap; z-index: 8; transition: visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(0, 0, 0, 0.65); border-radius: 4px; color: rgb(255, 255, 255); font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, SimSun, sans-serif; line-height: 20px; padding: 10px 10px 6px;">
+                                                            <div class="g2-tooltip-title"></div>
+                                                            <ul class="g2-tooltip-list"></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ant-col-12 _3Xpueg4CpthbJPl8i9UyGH"
+                                 style="padding-left: 12px; padding-right: 12px;">
+                                <div class="ant-card">
+                                    <div class="ant-card-head">
+                                        <div class="ant-card-head-title">借贷多头 - 机构数</div>
+                                    </div>
+                                    <div class="ant-card-body">
+                                        <div class="_1-Xw-tc26wr8YdwLMoo7D2"><h5 class="_1KcFkhFiEi6Z1zWR7rTk3Q">
+                                            借贷多头-近X天贷款的机构数</h5>
+                                            <div>
+                                                <div>&lt;!&ndash; react-empty: 243 &ndash;&gt;&lt;!&ndash; react-empty: 244 &ndash;&gt;
+                                                    &lt;!&ndash; react-empty: 245 &ndash;&gt;
+                                                    <div style="position:relative;">
+                                                        <canvas id="canvas_3" width="182.5" height="246"
+                                                                style="width: 182.5px; height: 246px;"></canvas>
+                                                        <div class="g2-tooltip"
+                                                             style="position: absolute; visibility: hidden; white-space: nowrap; z-index: 8; transition: visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(0, 0, 0, 0.65); border-radius: 4px; color: rgb(255, 255, 255); font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, SimSun, sans-serif; line-height: 20px; padding: 10px 10px 6px;">
+                                                            <div class="g2-tooltip-title"></div>
+                                                            <ul class="g2-tooltip-list"></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ant-col-12 _3Xpueg4CpthbJPl8i9UyGH"
+                                 style="padding-left: 12px; padding-right: 12px;">
+                                <div class="ant-card">
+                                    <div class="ant-card-head">
+                                        <div class="ant-card-head-title">借贷多头 - 借贷次数</div>
+                                    </div>
+                                    <div class="ant-card-body">
+                                        <div class="_1-Xw-tc26wr8YdwLMoo7D2"><h5 class="_1KcFkhFiEi6Z1zWR7rTk3Q">
+                                            借贷多头-近X天贷款的次数</h5>
+                                            <div>
+                                                <div>&lt;!&ndash; react-empty: 255 &ndash;&gt;&lt;!&ndash; react-empty: 256 &ndash;&gt;
+                                                    &lt;!&ndash; react-empty: 257 &ndash;&gt;
+                                                    <div style="position:relative;">
+                                                        <canvas id="canvas_4" width="182.5" height="246"
+                                                                style="width: 182.5px; height: 246px;"></canvas>
+                                                        <div class="g2-tooltip"
+                                                             style="position: absolute; visibility: hidden; white-space: nowrap; z-index: 8; transition: visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(0, 0, 0, 0.65); border-radius: 4px; color: rgb(255, 255, 255); font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, SimSun, sans-serif; line-height: 20px; padding: 10px 10px 6px;">
+                                                            <div class="g2-tooltip-title"></div>
+                                                            <ul class="g2-tooltip-list"></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ant-row _2mE9eHjxnCqyE6kPm1IGT4" style="margin-left: -12px; margin-right: -12px;">
+                            <div class="ant-col-6 MEZrGPMgc3MtW87R87UMy"
+                                 style="padding-left: 12px; padding-right: 12px;">
+                                <div class="ant-card">
+                                    <div class="ant-card-head">
+                                        <div class="ant-card-head-title">失信情况</div>
+                                    </div>
+                                    <div class="ant-card-body" style="padding: 24px;"><h5
+                                            class="_2tT9BMV-lclp5v2r2nnXks">法院执行人次数</h5>
+                                        <p class="_2ZJVZY9j7srrRHZYt1KzCe">2</p><h5 class="_2tT9BMV-lclp5v2r2nnXks">
+                                            失信未执行次数</h5>
+                                        <p class="_2ZJVZY9j7srrRHZYt1KzCe">2</p></div>
+                                </div>
+                            </div>
+                            <div class="ant-col-18 uvHxOxX9WWoJrdeZ5B9D9"
+                                 style="padding-left: 12px; padding-right: 12px;">
+                                <div class="ant-card ant-card-padding-transition">
+                                    <div class="ant-card-head">
+                                        <div class="ant-card-head-title">失信明细</div>
+                                    </div>
+                                    <div class="ant-card-body" style="padding: 24px;">
+                                        <div class="_3udGP3VnDOPvaHN78XEMIi"><h5 class="_1VDJaWQDF4YTal6KJ4MdtM">
+                                            上海市浦东新区人民法院</h5>
+                                            <div class="_2RVpEP4dz-79-F5rrZdhQt">
+                                                <div data-show="true" class="ant-tag"><span
+                                                        class="ant-tag-text">上海</span>&lt;!&ndash; react-text: 278 &ndash;&gt;
+                                                    &lt;!&ndash; /react-text &ndash;&gt;</div>
+                                                <div data-show="true" class="ant-tag"><span class="ant-tag-text">2017年07月08日</span>
+                                                    &lt;!&ndash; react-text: 281 &ndash;&gt;&lt;!&ndash; /react-text &ndash;&gt;</div>
+                                            </div>
+                                            <div class="_2rsvheNEKrk-EiaRHNkJ5f"><h5 class="_2tT9BMV-lclp5v2r2nnXks">
+                                                执行依据文号：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">(2017)沪0115执9562号</p><h5
+                                                        class="_2tT9BMV-lclp5v2r2nnXks">案号：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">(2016)沪0115民初49001号</p></div>
+                                            <div><h5 class="_2tT9BMV-lclp5v2r2nnXks">生效法律文书确定的义务：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">
+                                                    返还人民币702909.60元及已支付的诉讼费1534.40元共计：704444元</p></div>
+                                            <div><h5 class="_2tT9BMV-lclp5v2r2nnXks">被执行人的履行性质：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">全部未履行</p></div>
+                                            <div><h5 class="_2tT9BMV-lclp5v2r2nnXks">失信被执行人行为具体情形：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">违反财产报告制度</p></div>
+                                        </div>
+                                        <div class="_3udGP3VnDOPvaHN78XEMIi"><h5 class="_1VDJaWQDF4YTal6KJ4MdtM">
+                                            阳江市阳东区人民法院</h5>
+                                            <div class="_2RVpEP4dz-79-F5rrZdhQt">
+                                                <div data-show="true" class="ant-tag"><span
+                                                        class="ant-tag-text">广东</span>&lt;!&ndash; react-text: 301 &ndash;&gt;
+                                                    &lt;!&ndash; /react-text &ndash;&gt;</div>
+                                                <div data-show="true" class="ant-tag"><span class="ant-tag-text">2017年04月27日</span>
+                                                    &lt;!&ndash; react-text: 304 &ndash;&gt;&lt;!&ndash; /react-text &ndash;&gt;</div>
+                                            </div>
+                                            <div class="_2rsvheNEKrk-EiaRHNkJ5f"><h5 class="_2tT9BMV-lclp5v2r2nnXks">
+                                                执行依据文号：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">(2017)粤1704执309号</p><h5
+                                                        class="_2tT9BMV-lclp5v2r2nnXks">案号：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">（2015）阳东法民二初字第298号</p></div>
+                                            <div><h5 class="_2tT9BMV-lclp5v2r2nnXks">生效法律文书确定的义务：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">
+                                                    被告梁络初在本判决生效之日起七日内偿还信用卡透支本金3394.44元，利息376.57元，滞纳金21.76元，合计3792.77元及支付从2015年8月24日起至本判决确定的给付之日止产生的利息、滞纳金[按《中国农业银行金穗信用卡（贷记卡）章程》、《中国农业银行金穗贷记卡领用合约（个人卡）》的约定计算]给原告中国农业银行股份有限公司阳东县支行。受理费50元</p>
+                                            </div>
+                                            <div><h5 class="_2tT9BMV-lclp5v2r2nnXks">被执行人的履行性质：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">全部未履行</p></div>
+                                            <div><h5 class="_2tT9BMV-lclp5v2r2nnXks">失信被执行人行为具体情形：</h5>
+                                                <p class="_2ZJVZY9j7srrRHZYt1KzCe">其他有履行能力而拒不履行生效法律文书确定义务的</p></div>
+                                        </div>
+                                        <ul class="ant-pagination " unselectable="unselectable" style="float: right;">
+                                            <li title="上一页" tabindex="0"
+                                                class="ant-pagination-disabled ant-pagination-prev"
+                                                aria-disabled="true"><a class="ant-pagination-item-link"></a></li>
+                                            <li title="1"
+                                                class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                                                tabindex="0"><a>1</a></li>
+                                            <li title="下一页" tabindex="0"
+                                                class="ant-pagination-disabled ant-pagination-next"
+                                                aria-disabled="true"><a class="ant-pagination-item-link"></a></li>
+                                            <li class="ant-pagination-options">
+                                                <div class="ant-pagination-options-quick-jumper">
+                                                    &lt;!&ndash; react-text: 328 &ndash;&gt;跳至&lt;!&ndash; /react-text &ndash;&gt;<input type="text"
+                                                                                                         value="">
+                                                    &lt;!&ndash; react-text: 330 &ndash;&gt;页&lt;!&ndash; /react-text &ndash;&gt;</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div >
+                        <div class="ant-card ant-card-padding-transition">
+                            <div class="ant-card-head">
+                                <div class="ant-card-head-title">QQ群风险</div>
+                            </div>
+                            <div class="ant-card-body">
+                                <div>
+                                    <div>&lt;!&ndash; react-empty: 337 &ndash;&gt;&lt;!&ndash; react-empty: 338 &ndash;&gt;&lt;!&ndash; react-empty: 339 &ndash;&gt;
+                                        &lt;!&ndash; react-empty: 340 &ndash;&gt;&lt;!&ndash; react-empty: 341 &ndash;&gt;&lt;!&ndash; react-empty: 342 &ndash;&gt;
+                                        &lt;!&ndash; react-empty: 343 &ndash;&gt;
+                                        <div style="position:relative;">
+                                            <canvas id="canvas_5" width="437" height="300"
+                                                    style="width: 437px; height: 300px;"></canvas>
+                                            <div class="g2-tooltip"
+                                                 style="position: absolute; visibility: hidden; white-space: nowrap; z-index: 8; transition: visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(0, 0, 0, 0.65); border-radius: 4px; color: rgb(255, 255, 255); font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, SimSun, sans-serif; line-height: 20px; padding: 10px 10px 6px;">
+                                                <div class="g2-tooltip-title"></div>
+                                                <ul class="g2-tooltip-list"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div >
+                        <div class="ant-card ant-card-padding-transition">
+                            <div class="ant-card-head">
+                                <div class="ant-card-head-title">设备指纹风险</div>
+                            </div>
+                            <div class="ant-card-body">
+                                <div class="_34K1B9vjOvCt5RlVBcoGwr">
+                                    <div class="_1HZLlCz-vPA3lqdMv70JnQ"></div>
+                                    <h5 class="_3ILKLQ59g6QAbw-FRbSH8M">暂无相关数据</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div >
+                        <div class="ant-card _1Ulu6W6DHTCk-X2x2r5WaD ant-card-padding-transition">
+                            <div class="ant-card-body" style="padding: 0px;">
+                                <div class="_3VVdEr7iLyrAXseNtp4d7O"><h5 class="_2tT9BMV-lclp5v2r2nnXks">变更信息</h5>
+                                    <div class="ant-radio-group _3nl32LBdFkgWr7X2HyFIEo"><label
+                                            class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"><span
+                                            class="ant-radio-button ant-radio-button-checked"><input type="radio"
+                                                                                                     class="ant-radio-button-input"
+                                                                                                     value="on"><span
+                                            class="ant-radio-button-inner"></span></span><span>身份证存疑</span></label><label
+                                            class="ant-radio-button-wrapper"><span class="ant-radio-button"><input
+                                            type="radio" class="ant-radio-button-input" value="on"><span
+                                            class="ant-radio-button-inner"></span></span><span>手机存疑</span></label><label
+                                            class="ant-radio-button-wrapper"><span class="ant-radio-button"><input
+                                            type="radio" class="ant-radio-button-input" value="on"><span
+                                            class="ant-radio-button-inner"></span></span><span>设备指纹</span></label></div>
+                                </div>
+                                <div class="ant-row WMbpVzySnDjGqW_g6Jnjo">
+                                    <div class="ant-col-6 _2XhT2t7OopPsjXCm7UYguw">
+                                        <div class="vmUeo4AE-P7POKk_25W1h"
+                                             style="background: rgba(30, 136, 245, 0.05); border: 1px solid rgba(0, 0, 0, 0);">
+                                            <h5 class="_1VDJaWQDF4YTal6KJ4MdtM">身份证存疑姓名数</h5>
+                                            <p class="DeXyd4f_cG1ZtdHr6gaRE">6</p>&lt;!&ndash; react-text: 376 &ndash;&gt;
+                                            &lt;!&ndash; /react-text &ndash;&gt;</div>
+                                        <div class="vmUeo4AE-P7POKk_25W1h"><h5 class="_1VDJaWQDF4YTal6KJ4MdtM">
+                                            身份证存疑手机号码数</h5>
+                                            <p class="DeXyd4f_cG1ZtdHr6gaRE">61</p>
+                                            <p class="vk4aP1QTNWH82JYc4kAfd">&lt;!&ndash; react-text: 381 &ndash;&gt;处黑手机号码数:
+                                                &lt;!&ndash; /react-text &ndash;&gt;<span style="color: rgb(242, 99, 123);">0</span></p>
+                                        </div>
+                                        <div class="vmUeo4AE-P7POKk_25W1h"><h5 class="_1VDJaWQDF4YTal6KJ4MdtM">
+                                            提供数据的机构数</h5>
+                                            <p class="DeXyd4f_cG1ZtdHr6gaRE">8</p>&lt;!&ndash; react-text: 386 &ndash;&gt;
+                                            &lt;!&ndash; /react-text &ndash;&gt;</div>
+                                    </div>
+                                    <div class="ant-col-18 _94vWeFPxi5JfGHc-ITCqc" style="height: 351px;"><h5
+                                            class="_2tT9BMV-lclp5v2r2nnXks">身份证存疑姓名</h5>
+                                        <div class="ant-table-wrapper">
+                                            <div class="ant-spin-nested-loading">
+                                                <div class="ant-spin-container">
+                                                    <div class="ant-table ant-table-middle ant-table-scroll-position-left">
+                                                        <div class="ant-table-content">
+                                                            <div class="ant-table-body">
+                                                                <table class="">
+                                                                    <colgroup>
+                                                                        <col>
+                                                                        <col>
+                                                                    </colgroup>
+                                                                    <thead class="ant-table-thead">
+                                                                    <tr>
+                                                                        <th class=""><span>&lt;!&ndash; react-text: 403 &ndash;&gt;最后使用时间
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</span></th>
+                                                                        <th class=""><span>&lt;!&ndash; react-text: 406 &ndash;&gt;姓名
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</span></th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody class="ant-table-tbody">
+                                                                    <tr class="ant-table-row  ant-table-row-level-0">
+                                                                        <td class=""><span
+                                                                                class="ant-table-row-indent indent-level-0"
+                                                                                style="padding-left: 0px;"></span>
+                                                                            &lt;!&ndash; react-empty: 411 &ndash;&gt;
+                                                                            &lt;!&ndash; react-text: 412 &ndash;&gt;2017-03-11 09:57:56
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        <td class="">&lt;!&ndash; react-text: 414 &ndash;&gt;厉*
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                    </tr>
+                                                                    <tr class="ant-table-row  ant-table-row-level-0">
+                                                                        <td class=""><span
+                                                                                class="ant-table-row-indent indent-level-0"
+                                                                                style="padding-left: 0px;"></span>
+                                                                            &lt;!&ndash; react-empty: 418 &ndash;&gt;
+                                                                            &lt;!&ndash; react-text: 419 &ndash;&gt;2017-03-30 00:10:36
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        <td class="">&lt;!&ndash; react-text: 421 &ndash;&gt;了
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                    </tr>
+                                                                    <tr class="ant-table-row  ant-table-row-level-0">
+                                                                        <td class=""><span
+                                                                                class="ant-table-row-indent indent-level-0"
+                                                                                style="padding-left: 0px;"></span>
+                                                                            &lt;!&ndash; react-empty: 425 &ndash;&gt;
+                                                                            &lt;!&ndash; react-text: 426 &ndash;&gt;2017-04-04 20:01:14
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        <td class="">&lt;!&ndash; react-text: 428 &ndash;&gt;路
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                    </tr>
+                                                                    <tr class="ant-table-row  ant-table-row-level-0">
+                                                                        <td class=""><span
+                                                                                class="ant-table-row-indent indent-level-0"
+                                                                                style="padding-left: 0px;"></span>
+                                                                            &lt;!&ndash; react-empty: 432 &ndash;&gt;
+                                                                            &lt;!&ndash; react-text: 433 &ndash;&gt;2017-08-04 08:33:22
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        <td class="">&lt;!&ndash; react-text: 435 &ndash;&gt;卢
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                    </tr>
+                                                                    <tr class="ant-table-row  ant-table-row-level-0">
+                                                                        <td class=""><span
+                                                                                class="ant-table-row-indent indent-level-0"
+                                                                                style="padding-left: 0px;"></span>
+                                                                            &lt;!&ndash; react-empty: 439 &ndash;&gt;
+                                                                            &lt;!&ndash; react-text: 440 &ndash;&gt;2017-08-23 11:20:36
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                        <td class="">&lt;!&ndash; react-text: 442 &ndash;&gt;张*
+                                                                            &lt;!&ndash; /react-text &ndash;&gt;</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="ant-pagination ant-table-pagination mini"
+                                                        unselectable="unselectable">
+                                                        <li title="上一页" tabindex="0"
+                                                            class="ant-pagination-disabled ant-pagination-prev"
+                                                            aria-disabled="true"><a
+                                                                class="ant-pagination-item-link"></a></li>
+                                                        <li title="1"
+                                                            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                                                            tabindex="0"><a>1</a></li>
+                                                        <li title="2" class="ant-pagination-item ant-pagination-item-2"
+                                                            tabindex="0"><a>2</a></li>
+                                                        <li title="下一页" tabindex="0" class=" ant-pagination-next"
+                                                            aria-disabled="false"><a
+                                                                class="ant-pagination-item-link"></a></li>
+                                                        <li class="ant-pagination-options">
+                                                            <div class="ant-pagination-options-quick-jumper">
+                                                                &lt;!&ndash; react-text: 454 &ndash;&gt;跳至&lt;!&ndash; /react-text &ndash;&gt;<input
+                                                                    type="text" value="">&lt;!&ndash; react-text: 456 &ndash;&gt;页
+                                                                &lt;!&ndash; /react-text &ndash;&gt;</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div >
+                        <div class="ant-card _2XG4Bodvr_UnYcUoX5SQ30 ant-card-padding-transition">
+                            <div class="ant-card-body" style="padding: 0px;"><h5 class="_3WbMPylNwjuhnmy1sQl5bJ">
+                                黑名单信息</h5>
+                                <div class="BJH48U-80_Fkv4uxwB2HE">
+                                    <div class="ant-tabs ant-tabs-top ant-tabs-line">
+                                        <div role="tablist" class="ant-tabs-bar" tabindex="0">
+                                            <div class="ant-tabs-nav-container"><span unselectable="unselectable"
+                                                                                      class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"><span
+                                                    class="ant-tabs-tab-prev-icon"></span></span><span
+                                                    unselectable="unselectable"
+                                                    class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"><span
+                                                    class="ant-tabs-tab-next-icon"></span></span>
+                                                <div class="ant-tabs-nav-wrap">
+                                                    <div class="ant-tabs-nav-scroll">
+                                                        <div class="ant-tabs-nav ant-tabs-nav-animated">
+                                                            <div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                                                                 style="display: block; transform: translate3d(0px, 0px, 0px); width: 110px;"></div>
+                                                            <div role="tab" aria-disabled="false" aria-selected="true"
+                                                                 class="ant-tabs-tab-active ant-tabs-tab">黑名单信息
+                                                            </div>
+                                                            <div role="tab" aria-disabled="false" aria-selected="false"
+                                                                 class=" ant-tabs-tab">灰名单信息
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ant-tabs-content ant-tabs-content-animated"
+                                             style="margin-left: 0%;">
+                                            <div role="tabpanel" aria-hidden="false"
+                                                 class="ant-tabs-tabpane ant-tabs-tabpane-active">
+                                                <div class="_14FL4iKrediVh4ELRIsBbd">
+                                                    <ul class="ant-timeline">
+                                                        <li class="ant-timeline-item _1UIQ-AG4U1EyiTNUyyduV7">
+                                                            <div class="ant-timeline-item-tail"></div>
+                                                            <div class="ant-timeline-item-head ant-timeline-item-head-#F5474A"
+                                                                 style="border-color: rgb(245, 71, 74);"></div>
+                                                            <div class="ant-timeline-item-content">
+                                                                &lt;!&ndash; react-text: 482 &ndash;&gt;手机和姓名是否在黑名单
+                                                                &lt;!&ndash; /react-text &ndash;&gt;<span
+                                                                    class="_3rJCyiaGcQKzHWyApHiWv6"><i
+                                                                    class="anticon anticon-close-circle-o"
+                                                                    style="color: rgb(234, 84, 19);"></i></span></div>
+                                                        </li>
+                                                        <li class="ant-timeline-item _1UIQ-AG4U1EyiTNUyyduV7">
+                                                            <div class="ant-timeline-item-tail"></div>
+                                                            <div class="ant-timeline-item-head ant-timeline-item-head-#F5474A"
+                                                                 style="border-color: rgb(245, 71, 74);"></div>
+                                                            <div class="ant-timeline-item-content">
+                                                                &lt;!&ndash; react-text: 489 &ndash;&gt;手机和姓名黑名单更新时间&lt;!&ndash; /react-text &ndash;&gt;<span
+                                                                    class="_3rJCyiaGcQKzHWyApHiWv6">-</span></div>
+                                                        </li>
+                                                        <li class="ant-timeline-item _1UIQ-AG4U1EyiTNUyyduV7">
+                                                            <div class="ant-timeline-item-tail"></div>
+                                                            <div class="ant-timeline-item-head ant-timeline-item-head-#F38428"
+                                                                 style="border-color: rgb(243, 132, 40);"></div>
+                                                            <div class="ant-timeline-item-content">
+                                                                &lt;!&ndash; react-text: 495 &ndash;&gt;身份证和姓名是否在黑名单&lt;!&ndash; /react-text &ndash;&gt;<span
+                                                                    class="_3rJCyiaGcQKzHWyApHiWv6"><i
+                                                                    class="anticon anticon-close-circle-o"
+                                                                    style="color: rgb(234, 84, 19);"></i></span></div>
+                                                        </li>
+                                                        <li class="ant-timeline-item _1UIQ-AG4U1EyiTNUyyduV7">
+                                                            <div class="ant-timeline-item-tail"></div>
+                                                            <div class="ant-timeline-item-head ant-timeline-item-head-#F38428"
+                                                                 style="border-color: rgb(243, 132, 40);"></div>
+                                                            <div class="ant-timeline-item-content">
+                                                                &lt;!&ndash; react-text: 502 &ndash;&gt;身份证和姓名黑名单更新时间
+                                                                &lt;!&ndash; /react-text &ndash;&gt;<span
+                                                                    class="_3rJCyiaGcQKzHWyApHiWv6">-</span></div>
+                                                        </li>
+                                                        <li class="ant-timeline-item ant-timeline-item-last _1UIQ-AG4U1EyiTNUyyduV7">
+                                                            <div class="ant-timeline-item-tail"></div>
+                                                            <div class="ant-timeline-item-head ant-timeline-item-head-#20BBEF"
+                                                                 style="border-color: rgb(32, 187, 239);"></div>
+                                                            <div class="ant-timeline-item-content">
+                                                                &lt;!&ndash; react-text: 508 &ndash;&gt;被标记的黑名单分类
+                                                                &lt;!&ndash; /react-text &ndash;&gt;<span
+                                                                    class="_1R_UZVLTVflgwCXBUd9V0G"></span></div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="ant-row _1ox8kysowIMbTOgZ5R_Zbw">
+                                                    <div class="ant-col-8"><h5 class="H46fUHFIh4D8ShsQy56aE">逾期次数</h5>
+                                                        <p class="_3ascq81-gme26n8NqJm9Mm">0 </p></div>
+                                                    <div class="ant-col-8"><h5 class="H46fUHFIh4D8ShsQy56aE">
+                                                        最大逾期金额(元)</h5>
+                                                        <p class="_3ascq81-gme26n8NqJm9Mm">-</p></div>
+                                                    <div class="ant-col-8"><h5 class="H46fUHFIh4D8ShsQy56aE">最大逾期天数</h5>
+                                                        <p class="_3ascq81-gme26n8NqJm9Mm">0 </p></div>
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" aria-hidden="true"
+                                                 class="ant-tabs-tabpane ant-tabs-tabpane-inactive"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+    </div>
+</div>
+<script>
+    var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+    var barChartData = {
+        labels : ["授权过得直接联系人/占比","命中黑名单的直接联系人/占比","授权过的间接联系人/占比","命中黑名单的间接联系人/占比","引起间接联系人在黑名单的直接联系人/占比","引起间接联系人授权的直接联系人/占比","July"],
+        datasets : [
+            {
+                fillColor : "rgba(220,220,220,0.5)",
+                strokeColor : "rgba(220,220,220,0.8)",
+                highlightFill: "rgba(220,220,220,0.75)",
+                highlightStroke: "rgba(220,220,220,1)",
+                label:"30天",
+                data : [{$data.mobile_info.mobile_contact_30d.auth_contactnum},randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+            },
+            {
+                fillColor : "rgba(151,187,205,0.5)",
+                strokeColor : "rgba(151,187,205,0.8)",
+                highlightFill : "rgba(151,187,205,0.75)",
+                highlightStroke : "rgba(151,187,205,1)",
+                label:"60天",
+                data : [{$data.mobile_info.mobile_contact_30d.auth_contactnum},randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+            },
+            {
+                fillColor : "rgba(151,187,205,0.5)",
+                strokeColor : "rgba(151,187,205,0.8)",
+                highlightFill : "rgba(151,187,205,0.75)",
+                highlightStroke : "rgba(151,187,205,1)",
+                label:"90天",
+                data : [{$data.mobile_info.mobile_contact_30d.auth_contactnum},randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+            }
+        ]
+
+    }
+    window.onload = function(){
+        var ctx = document.getElementById("canvas").getContext("2d");
+        window.myBar = new Chart(ctx).Bar(barChartData, {
+            responsive : true
+        });
+    }
+</script>
+<script>
+    /*运营商模块-联系人*/
+    var myChart = echarts.init(document.getElementById('main'));
+    //数据
+    var all = {
+        "data": [
+            [{$data.mobile_info.mobile_contact_180d.auth_contactnum}, {$data.mobile_info.mobile_contact_180d.black_contactnum}, {$data.mobile_info.mobile_contact_180d.auth_indirectnum}, {$data.mobile_info.mobile_contact_180d.black_indirectnum}, {$data.mobile_info.mobile_contact_180d.black_indirect_peernum}, {$data.mobile_info.mobile_contact_180d.auth_indirect_peernum}],
+            [{$data.mobile_info.mobile_contact_90d.auth_contactnum}, {$data.mobile_info.mobile_contact_90d.black_contactnum}, {$data.mobile_info.mobile_contact_90d.auth_indirectnum}, {$data.mobile_info.mobile_contact_90d.black_indirectnum}, {$data.mobile_info.mobile_contact_90d.black_indirect_peernum}, {$data.mobile_info.mobile_contact_90d.auth_indirect_peernum}],
+            [{$data.mobile_info.mobile_contact_30d.auth_contactnum}, {$data.mobile_info.mobile_contact_30d.black_contactnum}, {$data.mobile_info.mobile_contact_30d.auth_indirectnum}, {$data.mobile_info.mobile_contact_30d.black_indirectnum}, {$data.mobile_info.mobile_contact_30d.black_indirect_peernum}, {$data.mobile_info.mobile_contact_30d.auth_indirect_peernum}]
+        ],
+        "rote": [
+            [{$data.mobile_info.mobile_contact_180d.auth_contact_ratio}, {$data.mobile_info.mobile_contact_180d.black_contactnum_ratio}, {$data.mobile_info.mobile_contact_180d.auth_indirectnum_ratio}, {$data.mobile_info.mobile_contact_180d.black_indirectnum_ratio}, {$data.mobile_info.mobile_contact_180d.black_indirect_peernum_ratio}, {$data.mobile_info.mobile_contact_180d.auth_indirect_peernum_ratio}],
+            [{$data.mobile_info.mobile_contact_90d.auth_contact_ratio}, {$data.mobile_info.mobile_contact_90d.black_contactnum_ratio}, {$data.mobile_info.mobile_contact_90d.auth_indirectnum_ratio}, {$data.mobile_info.mobile_contact_90d.black_indirectnum_ratio}, {$data.mobile_info.mobile_contact_90d.black_indirect_peernum_ratio}, {$data.mobile_info.mobile_contact_90d.auth_indirect_peernum_ratio}],
+            [{$data.mobile_info.mobile_contact_30d.auth_contact_ratio}, {$data.mobile_info.mobile_contact_30d.black_contactnum_ratio}, {$data.mobile_info.mobile_contact_30d.auth_indirectnum_ratio}, {$data.mobile_info.mobile_contact_30d.black_indirectnum_ratio}, {$data.mobile_info.mobile_contact_30d.black_indirect_peernum_ratio}, {$data.mobile_info.mobile_contact_30d.auth_indirect_peernum_ratio}]
+        ],
+        "provinces": ["授权过得直接联系人", "命中黑名单的直接联系人", "授权过的间接联系人", "命中黑名单的间接联系人", "引起间接联系人在黑名单的直接联系人","引起间接联系人授权的直接联系人"],
+        "months": ["180天"+{$data.mobile_info.mobile_contact_180d.contactnum}+"人", "90天"+{$data.mobile_info.mobile_contact_90d.contactnum}+"人", "30天"+{$data.mobile_info.mobile_contact_30d.contactnum}+"人"]
+    };
+
+    //series样式
+    var itemStyle = {
+        normal: {
+            color: new echarts.graphic.LinearGradient(
+                0, 1, 0, 0, [{
+                    offset: 0,
+                    color: '#2af598'
+                }, {
+                    offset: 1,
+                    color: '#009efd'
+                }]
+            ),
+            barBorderRadius: 4
+        },
+        emphasis: {
+            color: new echarts.graphic.LinearGradient(
+                0, 1, 0, 0, [{
+                    offset: 0,
+                    color: '#2af598'
+                }, {
+                    offset: 1,
+                    color: '#009efd'
+                }]
+            ),
+            barBorderRadius: 4
+        }
+    };
+
+    // echarts配置项
+    option = {
+        timeline: {
+            axisType: 'category',
+            show: true,
+            autoPlay: false,
+            playInterval: 1000,
+            data: []
+        },
+        options: []
+    };
+
+    //循环数据
+    for (var n = 0; n < all.months.length; n++) {
+        option.timeline.data.push(all.months[n]);
+        option.options.push({
+            title: {
+                show: true,
+                text: all.months[n]
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                show: true,
+                x: 'right',
+                data: ['人数', '百分比']
+            },
+            calculable: true,
+            grid: {
+                y: 80,
+                y2: 100
+            },
+            xAxis: [{
+                type: 'category',
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45
+                },
+                data: all.provinces
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '上客量(人)'
+            }, {
+                type: 'value',
+                name: '百分比(%)'
+            }],
+            series: [{
+                name: '人数',
+                yAxisIndex: 0,
+                type: 'bar',
+                itemStyle: itemStyle,
+                barWidth:40,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c}'
+                    }
+                },
+                data: all.data[n]
+            }, {
+                name: '百分比',
+                yAxisIndex: 1,
+                type: 'line',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c}'+'%'
+                    }
+                },
+                data: all.rote[n]
+            }]
+        });
+    }
+    myChart.setOption(option);
+</script>
+<script>
+    /*运营商模块-亲密联系人*/
+    var myChart = echarts.init(document.getElementById('qinmi'));
+    //数据
+    var all = {
+        "data": [
+            [{$data.mobile_info.intimate_contact_info_180d.auth_intimatenum}, {$data.mobile_info.intimate_contact_info_180d.black_intimatenum}, {$data.mobile_info.intimate_contact_info_180d.auth_intimate_indirectnum}, {$data.mobile_info.intimate_contact_info_180d.black_intimate_indirectnum}, {$data.mobile_info.intimate_contact_info_180d.black_intimate_indirect_peernum}, {$data.mobile_info.intimate_contact_info_180d.auth_intimate_indirect_peernum}],
+    [{$data.mobile_info.intimate_contact_info_90d.auth_intimatenum}, {$data.mobile_info.intimate_contact_info_90d.black_intimatenum}, {$data.mobile_info.intimate_contact_info_90d.auth_intimate_indirectnum}, {$data.mobile_info.intimate_contact_info_90d.black_intimate_indirectnum}, {$data.mobile_info.intimate_contact_info_90d.black_intimate_indirect_peernum}, {$data.mobile_info.intimate_contact_info_90d.auth_intimate_indirect_peernum}],
+    [{$data.mobile_info.intimate_contact_info_30d.auth_intimatenum}, {$data.mobile_info.intimate_contact_info_30d.black_intimatenum}, {$data.mobile_info.intimate_contact_info_30d.auth_intimate_indirectnum}, {$data.mobile_info.intimate_contact_info_30d.black_intimate_indirectnum}, {$data.mobile_info.intimate_contact_info_30d.black_intimate_indirect_peernum}, {$data.mobile_info.intimate_contact_info_30d.auth_intimate_indirect_peernum}]
+    ],
+    "rote": [
+        [{$data.mobile_info.intimate_contact_info_180d.auth_intimatenum_ratio}, {$data.mobile_info.intimate_contact_info_180d.black_intimatenum_ratio}, {$data.mobile_info.intimate_contact_info_180d.auth_intimate_indirectnum_ratio}, {$data.mobile_info.intimate_contact_info_180d.black_intimate_indirectnum_ratio}, {$data.mobile_info.intimate_contact_info_180d.black_intimate_indirect_peernum_ratio}, {$data.mobile_info.intimate_contact_info_180d.auth_intimate_indirect_peernum_ratio}],
+    [{$data.mobile_info.intimate_contact_info_90d.auth_intimatenum_ratio}, {$data.mobile_info.intimate_contact_info_90d.black_intimatenum_ratio}, {$data.mobile_info.intimate_contact_info_90d.auth_intimate_indirectnum_ratio}, {$data.mobile_info.intimate_contact_info_90d.black_intimate_indirectnum_ratio}, {$data.mobile_info.intimate_contact_info_90d.black_intimate_indirect_peernum_ratio}, {$data.mobile_info.intimate_contact_info_90d.auth_intimate_indirect_peernum_ratio}],
+    [{$data.mobile_info.intimate_contact_info_30d.auth_intimatenum_ratio}, {$data.mobile_info.intimate_contact_info_30d.black_intimatenum_ratio}, {$data.mobile_info.intimate_contact_info_30d.auth_intimate_indirectnum_ratio}, {$data.mobile_info.intimate_contact_info_30d.black_intimate_indirectnum_ratio}, {$data.mobile_info.intimate_contact_info_30d.black_intimate_indirect_peernum_ratio}, {$data.mobile_info.intimate_contact_info_30d.auth_intimate_indirect_peernum_ratio}]
+    ],
+    "provinces": ["授权过得直接联系人", "命中黑名单的直接联系人", "授权过的间接联系人", "命中黑名单的间接联系人", "引起间接联系人在黑名单的直接联系人","引起间接联系人授权的直接联系人"],
+        "months": ["180天"+{$data.mobile_info.intimate_contact_info_180d.intimatenum}+"人", "90天"+{$data.mobile_info.intimate_contact_info_90d.intimatenum}+"人", "30天"+{$data.mobile_info.intimate_contact_info_30d.intimatenum}+"人"]
+    };
+
+    //series样式
+    var itemStyle = {
+        normal: {
+            color: new echarts.graphic.LinearGradient(
+                0, 1, 0, 0, [{
+                    offset: 0,
+                    color: '#2af598'
+                }, {
+                    offset: 1,
+                    color: '#009efd'
+                }]
+            ),
+            barBorderRadius: 4
+        },
+        emphasis: {
+            color: new echarts.graphic.LinearGradient(
+                0, 1, 0, 0, [{
+                    offset: 0,
+                    color: '#2af598'
+                }, {
+                    offset: 1,
+                    color: '#009efd'
+                }]
+            ),
+            barBorderRadius: 4
+        }
+    };
+
+    // echarts配置项
+    option = {
+        timeline: {
+            axisType: 'category',
+            show: true,
+            autoPlay: false,
+            playInterval: 1000,
+            data: []
+        },
+        options: []
+    };
+
+    //循环数据
+    for (var n = 0; n < all.months.length; n++) {
+        option.timeline.data.push(all.months[n]);
+        option.options.push({
+            title: {
+                show: true,
+                text: all.months[n]
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                show: true,
+                x: 'right',
+                data: ['人数', '百分比']
+            },
+            calculable: true,
+            grid: {
+                y: 80,
+                y2: 100
+            },
+            xAxis: [{
+                type: 'category',
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45
+                },
+                data: all.provinces
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '上客量(人)'
+            }, {
+                type: 'value',
+                name: '百分比(%)'
+            }],
+            series: [{
+                name: '人数',
+                yAxisIndex: 0,
+                type: 'bar',
+                itemStyle: itemStyle,
+                barWidth:40,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c}'
+                    }
+                },
+                data: all.data[n]
+            }, {
+                name: '百分比',
+                yAxisIndex: 1,
+                type: 'line',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c}'+'%'
+                    }
+                },
+                data: all.rote[n]
+            }]
+        });
+    }
+    myChart.setOption(option);
+</script>
+</body>
+</html>

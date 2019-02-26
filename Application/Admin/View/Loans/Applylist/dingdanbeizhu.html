@@ -1,0 +1,32 @@
+<include file="Shared:Header" />
+
+<body class="Bodybg">
+	<form id="FF" class="easyui-form" method="post" data-options="novalidate:true">
+		<table width="100%" border="0" cellpadding="3" cellspacing="0" class="EditTable">
+			<thead>
+				<tr>
+					<td colspan="2">说明：次数用于给当前选中的订单添加备注信息！</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="right">订单号码：</td>
+					<td>
+						<select id="Status" name="time_id">
+				         <option value="{$vo.ID}">{$LoanNo}</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">备注信息:</td>
+					<td colspan="3">
+						<textarea name="Remark" id="Remark" style="width:400px;height:90px;">{$Remark}</textarea><br/>
+					<!--	<span style="color:red;">提示：审核失败需要填写原因</span>-->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="hidden" id="ID" name="ID" value="{$ID}" />
+	</form>
+</body>
+<include file="Shared:Footer" />
